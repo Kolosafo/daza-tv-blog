@@ -10,6 +10,8 @@ import {
   Title,
 } from "./Styledcomp/BlogStyles";
 import Image from "next/image";
+import onion from "../Slider/onion1.jpg"
+import men from "../Slider/men1.jpg"
 import img from "./assets/the-best-sports-for-a-demanding-workout-1024x569.jpg";
 import { BotCon, BottomDiv, ImgCon, RecentShareLink, TextCon } from "./Styledcomp/RecentBlogsStyles";
 
@@ -30,7 +32,7 @@ export default function RecentBlog() {
         <BottomDiv>
             <BotCon>
             <ImgCon>
-                <Image width={100} src={img} alt="img" />
+                <Image width={100} src={men} alt="img" />
             </ImgCon>
             <TextCon>
                 <h2>Watching Global Warming in Action</h2>
@@ -39,7 +41,7 @@ export default function RecentBlog() {
             </BotCon>
             <BotCon>
             <ImgCon>
-                <Image width={100} src={img} alt="img" />
+                <Image width={100} src={onion} alt="img" />
             </ImgCon>
             <TextCon>
                 <h2>Watching Global Warming in Action</h2>

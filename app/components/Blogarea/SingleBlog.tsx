@@ -32,9 +32,8 @@ export default function SingleBlog() {
       <Footer>
         <ShareLink>
           <div>
-        
-          <BsFillShareFill /> <span/>
-          share /<span/> <BiCommentDetail /> <span/> 4 comment
+            <BsFillShareFill /> <span />  share /<span /> <BiCommentDetail />
+           <span /> 4 comment
           </div>
         </ShareLink>
       </Footer>

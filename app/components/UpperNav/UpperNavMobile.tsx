@@ -11,14 +11,15 @@ import {
   IconWrapper,
   InfoSection,
   LeftSection,
+  MNav,
   Nav,
   NavContainer,
   RightSection,
 } from "./PageStyles";
 
-export default function Uppernav() {
+export default function UpperNavMobile() {
   return (
-    <Nav>
+    <MNav>
       <NavContainer>
         <LeftSection>
           <span>@ 2016</span>
@@ -48,6 +49,6 @@ export default function Uppernav() {
           </InfoSection>
         </RightSection>
       </NavContainer>
-    </Nav>
+    </MNav>
   );
 }

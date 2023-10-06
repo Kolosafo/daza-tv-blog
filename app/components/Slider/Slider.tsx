@@ -23,7 +23,7 @@ export default function SliderPage() {
             pagination={{
               clickable: true,
             }}
-            navigation={true}
+            // navigation={true}
           modules={[Autoplay, Pagination, Navigation]}
           //   onSlideChange={() => console.log('slide change')}
           //   onSwiper={(swiper) => console.log(swiper)}

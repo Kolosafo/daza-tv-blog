@@ -7,19 +7,27 @@ export const ShareLink = styled.p`
   align-items: center;
   font-size: medium;
   color: #fb4c35;
-
+  @media only screen and (max-width: 767px) {
+    display: none;
+    }
   div {
     width: 90%;
-
     display: flex;
     justify-content: start;
     align-items: center;
     font-size: medium;
+    @media only screen and (max-width: 767px) {
+    
+    font-size: small;
+  }
     
   }
   span {
     padding-left: 4px;
     padding-right: 4px;
+    @media only screen and (max-width: 767px) {
+    padding: 0;
+  }
   }
 `;
 export const Title = styled.h2`
@@ -46,6 +54,14 @@ export const Container = styled.div`
     transition: 0.5s all ease-in-out;
     color: #fb4c35;
   }
+
+  @media only screen and (max-width: 767px) {
+    
+    width: 100%;
+    padding: 0;
+    justify-content: space-between;
+    
+  }
 `;
 
 export const ImageContainer = styled.div``;
@@ -58,7 +74,12 @@ export const ContentContainer = styled.div`
   justify-content: space-between;
   align-items: flex-start;
   background-color: #fff; /* Set your background color */
+  @media only screen and (max-width: 767px) {
+    padding: 10px;
+
+  }
 `;
+
 
 export const Date = styled.small`
   font-size: 0.875rem; /* Equivalent to text-sm in Tailwind */
@@ -66,7 +87,12 @@ export const Date = styled.small`
 `;
 
 export const Description = styled.span`
-  font-size: 1.125rem; /* Equivalent to text-lg in Tailwind */
+  font-size: 1.125rem;
+
+  @media only screen and (max-width: 767px) {
+    
+    font-size: 14px;
+  }
 `;
 
 export const Footer = styled.div`

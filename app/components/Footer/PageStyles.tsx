@@ -12,6 +12,10 @@ export const FCon = styled.div`
   display: flex;
   padding: 80px 0 75px;
   justify-content: space-between;
+  @media only screen and (max-width: 767px) {
+   flex-direction: column;
+   
+  }
 `;
 
 export const InnerCon = styled.div`
@@ -30,6 +34,10 @@ export const InnerCon = styled.div`
     font-weight: 700;
     color: white;
     padding-bottom: 10px;
+  }
+
+  @media only screen and (max-width: 767px) {
+    padding-top: 20px;
   }
 `;
 

@@ -8,13 +8,19 @@ export const Container = styled.div`
     height: 100%;
   margin-bottom: 15px;
   margin-top: 10px; 
+  @media only screen and (max-width: 767px) {
 
+  }
 `;
 export const BgImg = styled.div`
   width: 100%;
   object-fit: fill;
   height: 100%;
-  justify-content: center;
+  justify-content: center; 
+  @media only screen and (max-width: 767px) {
+    width: 0%;
+  
+}
 `;
 
 export const InnerSpan = styled.span`
@@ -25,6 +31,10 @@ export const InnerSpan = styled.span`
 
   background-color: #fb4c35;
   padding: 7px 10px; /* Adjust  according to your design */
+
+  @media only screen and (max-width: 767px) {
+    width: 100%;
+}
 `;
 
 export const BlogCon = styled.div`
