@@ -4,6 +4,7 @@ import Navbar from './components/Navbar/page'
 import Slider from './components/Slider/page'
 import ImageSlider from './components/Slider/ImgSlider'
 import BlogArea from './components/Blogarea/page'
+import Footer from './components/Footer/page'
 
 export default function Home() {
   return (
@@ -12,6 +13,9 @@ export default function Home() {
       <Navbar />
       <Slider />
       <BlogArea />
+      <Footer/>
+      <Uppernav />
+
     </main>
   )
 }

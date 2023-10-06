@@ -12,7 +12,7 @@ import onion from "./onion1.jpg";
 export default function SliderPage() {
   return (
     <div className="flex justify-center  border-red-500">
-      <div className=" bg-cover bg-center w-[80%] ">
+      <div className=" bg-cover bg-center w-[70%] ">
         <Swiper
           slidesPerView={1}
           centeredSlides={true}
@@ -37,13 +37,13 @@ export default function SliderPage() {
               quality={100}
               placeholder="blur"
             />
-            <div className="absolute top-[70%] left-[0%] w-full h-full bg-gray-700 opacity-[40%] ">
-              <div>
-                
+            {/* <div className="absolute top-[70%] left-[0%] w-full h-full bg-gray-700 opacity-[40%] ">
+              <div className="text-white opacity-100"> 
+                Text here
               </div>
-            </div>
+            </div> */}
           </SwiperSlide>
-          {/* <SwiperSlide>
+          <SwiperSlide>
             <Image
               src={men}
               alt="img"
@@ -62,7 +62,7 @@ export default function SliderPage() {
               className="w-full"
               style={{ objectFit: "fill" }}
             />
-          </SwiperSlide> */}
+          </SwiperSlide>
         </Swiper>
       </div>
 

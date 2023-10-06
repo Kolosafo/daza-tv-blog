@@ -18,7 +18,7 @@ const ImageSlider = () => {
         >
             
         </div>
-        <Image src={image} alt={`Slide ${index}`} className="w-80% h-auto z-10" />
+        <Image src={image} alt={`Slide ${index}`} className="w-70% h-auto z-10" />
       </div>
     ))}
   </div>
