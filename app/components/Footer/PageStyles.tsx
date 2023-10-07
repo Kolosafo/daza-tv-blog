@@ -12,6 +12,7 @@ export const FCon = styled.div`
   display: flex;
   padding: 80px 0 75px;
   justify-content: space-between;
+  flex-wrap: wrap;
   @media only screen and (max-width: 767px) {
    flex-direction: column;
    
@@ -59,6 +60,10 @@ export const InnerConDiv = styled.div`
         transition: 0.3s ease-in-out;
       }
     }
+  }
+
+  @media only screen and (max-width: 1400px) {
+      flex-direction: column;
   }
 `;
 export const Comment = styled.div`

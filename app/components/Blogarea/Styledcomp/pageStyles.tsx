@@ -26,7 +26,7 @@ export const BgImg = styled.div`
 export const InnerSpan = styled.span`
   text-align: center;
   height: 100%;
-  width: 10%;
+  width: 20%;
   color: #fff;
 
   background-color: #fb4c35;
@@ -40,9 +40,15 @@ export const InnerSpan = styled.span`
 export const BlogCon = styled.div`
   display: flex;
   flex-direction: row;
+  
   align-items: center;
   margin-bottom: 40px;
   @media only screen and (max-width: 767px) {
-    flex-direction: column;
+    display: block;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+  
 }
+
 `

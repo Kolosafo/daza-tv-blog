@@ -28,21 +28,21 @@ export default function Footer() {
           <h2>Recent Posts</h2>
 
           <InnerConDiv>
-            <Image width={100} src={fimg2} alt="img" />
+            <Image  src={fimg2} alt="img" />
             <div>
               <h2>We Went Deep...</h2>
               <small>Febuary 29, 2018</small>
             </div>
           </InnerConDiv>
           <InnerConDiv>
-            <Image width={100} src={fimg2} alt="img" />
+            <Image  src={fimg2} alt="img" />
             <div>
               <h2>We Went Deep...</h2>
               <small>Febuary 29, 2018</small>
             </div>
           </InnerConDiv>
           <InnerConDiv>
-            <Image width={100} src={fimg2} alt="img" />
+            <Image  src={fimg2} alt="img" />
             <div>
               <h2>We Went Deep...</h2>
               <small>Febuary 29, 2018</small>

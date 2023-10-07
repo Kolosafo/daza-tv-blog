@@ -37,6 +37,9 @@ export const BotCon = styled.div`
   border-bottom: 2px solid lightgray;
   @media only screen and (max-width: 767px) {
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
 }
 `;
 
@@ -44,7 +47,9 @@ export const ImgCon = styled.div`
   width: 30%;
   @media only screen and (max-width: 767px) {
     width: 100%;
-
+    justify-content: center;
+    display: flex;
+    margin-bottom: 10px;
 }
 `;
 export const TextCon = styled.div`

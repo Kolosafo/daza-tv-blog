@@ -31,9 +31,10 @@ export const ShareLink = styled.p`
   }
 `;
 export const Title = styled.h2`
-  font-size: 1.25rem; /* Equivalent to text-2xl in Tailwind */
+  font-size: 1.5rem; /* Equivalent to text-2xl in Tailwind */
   margin-bottom: 9px; /* Equivalent to 4px in Tailwind */
   font-weight: bold;
+  color: black;
 `;
 
 export const Container = styled.div`
@@ -44,6 +45,7 @@ export const Container = styled.div`
   width: 35%;
   padding-top: 1.25rem;
   margin-right: 30px;
+  margin-bottom: 20px;
 
   &:hover ${ShareLink} {
     transition: 0.5s all ease-in-out;
@@ -60,6 +62,7 @@ export const Container = styled.div`
     width: 100%;
     padding: 0;
     justify-content: space-between;
+   
     
   }
 `;
@@ -87,7 +90,7 @@ export const Date = styled.small`
 `;
 
 export const Description = styled.span`
-  font-size: 1.125rem;
+  font-size: 0.9rem;
 
   @media only screen and (max-width: 767px) {
     

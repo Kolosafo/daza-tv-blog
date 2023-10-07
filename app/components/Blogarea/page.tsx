@@ -5,6 +5,7 @@ import { BgImg, BlogCon, Container, InnerSpan } from "./Styledcomp/pageStyles";
 import bgimage from "./assets/11231.png";
 import Image from "next/image";
 import RecentBlog from "./RecentBlog";
+import LatestNews from "./LatestNews";
 
 export default function BlogArea() {
   return (
@@ -22,21 +23,29 @@ export default function BlogArea() {
           <RecentBlog />
         </BlogCon>
         <Container>
-          <InnerSpan>Recent posts</InnerSpan>
+          <InnerSpan>Latest News</InnerSpan>
           <BgImg>
             <Image height={40} src={bgimage} alt="img" />
           </BgImg>
         </Container>
         <BlogCon>
-          <SingleBlog/>
-          <SingleBlog/>
+       < LatestNews />
+        </BlogCon>
+        
+        <Container>
+          <InnerSpan>Reports</InnerSpan>
+          <BgImg>
+            <Image height={40} src={bgimage} alt="img" />
+          </BgImg>
+        </Container>
+        <BlogCon>
+          <SingleBlog />
+          <SingleBlog />
         </BlogCon>
         <BlogCon>
-          <SingleBlog/>
-          <SingleBlog/>
+          <SingleBlog />
+          <SingleBlog />
         </BlogCon>
-       
-
       </div>
     </main>
   );
