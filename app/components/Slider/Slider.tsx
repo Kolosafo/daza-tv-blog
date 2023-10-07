@@ -12,7 +12,7 @@ import onion from "./onion1.jpg";
 export default function SliderPage() {
   return (
     <div className="flex justify-center  border-red-500">
-      <div className=" bg-cover bg-center w-[70%] ">
+      <div className=" bg-cover bg-center md:w-[40%] w-4/5 ">
         <Swiper
           slidesPerView={1}
           centeredSlides={true}

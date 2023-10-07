@@ -22,8 +22,8 @@ export default function UpperNavMobile() {
     <MNav>
       <NavContainer>
         <LeftSection>
-          <span>@ 2016</span>
-          <a>Qode Interactive</a>
+          <span>@ 2023</span>
+          <a className="mx-4">DAZA TV</a>
           <span>All Rights Reserved</span>
         </LeftSection>
         <RightSection>

@@ -8,8 +8,8 @@ import { AiOutlineDown } from "react-icons/ai";
 export default function Navbar() {
   return (
     <main className="bg-[white] w-full border  ">
-      <nav className="h-full flex justify-between py-10 m-auto w-[70%] ">
-        <div>
+      <nav className="h-full flex justify-between md:py-8 py-5 m-auto md:w-[70%] w-full">
+        <div className="md:ml-0 -ml-10">
           <Image width={400} src={logo} alt="logohere" />
         </div>
         <div className="hidden  h-full pl-4 items-center justify-center  lg:flex">

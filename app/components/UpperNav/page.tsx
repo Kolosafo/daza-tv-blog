@@ -21,8 +21,8 @@ export default function Uppernav() {
     <Nav>
       <NavContainer>
         <LeftSection>
-          <span>@ 2016</span>
-          <a>Qode Interactive</a>
+          <span>@ 2023</span>
+          <a className="mx-2">Daza TV</a>
           <span>All Rights Reserved</span>
         </LeftSection>
         <RightSection>
