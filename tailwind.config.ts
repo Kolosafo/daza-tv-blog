@@ -8,14 +8,14 @@ const config: Config = {
   ],
   theme: {
     extend: {
-      screens: {
-        "xlg": { max: "1400px" },
-        "lg": { max: "1200px" },
-        "md": { max: "1024px" },
-        "xmd": { max: "658px" },
-        "sm": { max: "500px" },
-        "xsm": { max: "400px" },
-      },
+      // screens: {
+      //   "xlg": { max: "1400px" },
+      //   "lg": { max: "1200px" },
+      //   "md": { max: "1024px" },
+      //   "xmd": { max: "658px" },
+      //   "sm": { max: "500px" },
+      //   "xsm": { max: "400px" },
+      // },
       colors: {
         TXT: "#000000",
         BG: "#ffffff",

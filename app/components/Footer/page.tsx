@@ -21,8 +21,8 @@ export default function Footer() {
           <div></div>
           <h2>Address</h2>
           <p>
-            98 West 21th Street, Suite 721 New York, NY 10010 : E:
-            discussion@qodeinteractive.com P: +88 (0) 101 0000 000
+            Minna, Niger State : E:
+            dazatv@gmail.com.com P: +234 (0) 0 0000 000
           </p>
         </InnerCon>
         <InnerCon>
