@@ -14,6 +14,7 @@ import {
 } from "./Styledcomp/BlogStyles";
 import { BsFillShareFill } from "react-icons/bs";
 import { BiCommentDetail } from "react-icons/bi";
+import { DateIcon } from "../RightMenu/pageStyles";
 
 export default function SingleBlog() {
   return (
@@ -23,7 +24,7 @@ export default function SingleBlog() {
       </ImageContainer>
       <ContentContainer>
         <Title>The Best Sports For A Hard...</Title>
-        <Date>February 19, 2019</Date>
+        <Date>  <DateIcon />February 19, 2019</Date>
         <Description>
           Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean
           commodo ligula eget dolor. Aenean massa.

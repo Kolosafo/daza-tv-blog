@@ -14,6 +14,7 @@ import onion from "../Slider/onion1.jpg"
 import men from "../Slider/men1.jpg"
 import img from "./assets/the-best-sports-for-a-demanding-workout-1024x569.jpg";
 import { BotCon, BottomDiv, ImgCon, RecentShareLink, TextCon } from "./Styledcomp/RecentBlogsStyles";
+import { DateIcon } from "../RightMenu/pageStyles";
 
 export default function RecentBlog() {
   return (
@@ -23,7 +24,7 @@ export default function RecentBlog() {
       </ImageContainer>
       <ContentContainer>
         <Title>The Best Sports For A Hard...</Title>
-        <Date>February 19, 2019</Date>
+        <Date>  <DateIcon />February 19, 2019</Date>
       </ContentContainer>
       <Footer>
         <RecentShareLink>
@@ -36,7 +37,7 @@ export default function RecentBlog() {
             </ImgCon>
             <TextCon>
                 <h2>Watching Global Warming in Action</h2>
-                <p> Febuary 29, 2019</p>
+                <p>   <DateIcon />Febuary 29, 2019</p>
             </TextCon>
             </BotCon>
             <BotCon>
@@ -45,7 +46,7 @@ export default function RecentBlog() {
             </ImgCon>
             <TextCon>
                 <h2>Watching Global Warming in Action</h2>
-                <p> Febuary 29, 2019</p>
+                <p>   <DateIcon />Febuary 29, 2019</p>
             </TextCon>
             </BotCon>
             <BotCon>
@@ -54,7 +55,7 @@ export default function RecentBlog() {
             </ImgCon>
             <TextCon>
                 <h2>Watching Global Warming in Action</h2>
-                <p> Febuary 29, 2019</p>
+                <p>   <DateIcon />Febuary 29, 2019</p>
             </TextCon>
             </BotCon>
 

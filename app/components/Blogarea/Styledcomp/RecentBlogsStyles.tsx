@@ -55,12 +55,14 @@ export const ImgCon = styled.div`
 export const TextCon = styled.div`
   width: 90%;
   padding-left: 20px;
+
   @media only screen and (max-width: 767px) {
-    
     padding: 0;
 }
   h2 {
-    font-size: 17px;
+    font-size: 19px;
+    color: black;
+
     &:hover {
       color: #fb4c35;
       transition: 0.3s ease-in-out;
@@ -69,5 +71,9 @@ export const TextCon = styled.div`
         padding-left: 0;
       }
     }
+   
   }
+  p{
+      display: flex;
+    }
 `;

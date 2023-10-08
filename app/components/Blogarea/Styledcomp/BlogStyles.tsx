@@ -42,9 +42,8 @@ export const Container = styled.div`
   flex-direction: column;
   align-items: flex-start;
   justify-content: center;
-  width: 35%;
+  width: 49%;
   padding-top: 1.25rem;
-  margin-right: 30px;
   margin-bottom: 20px;
 
   &:hover ${ShareLink} {
@@ -85,6 +84,7 @@ export const ContentContainer = styled.div`
 
 
 export const Date = styled.small`
+display: flex;
   font-size: 0.875rem; /* Equivalent to text-sm in Tailwind */
   margin-bottom: 10px; /* Equivalent to 4px in Tailwind */
 `;

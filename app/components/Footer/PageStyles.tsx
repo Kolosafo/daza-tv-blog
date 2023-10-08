@@ -60,6 +60,10 @@ export const InnerConDiv = styled.div`
         transition: 0.3s ease-in-out;
       }
     }
+    small{
+      display: flex;
+      
+    }
   }
 
   @media only screen and (max-width: 1400px) {

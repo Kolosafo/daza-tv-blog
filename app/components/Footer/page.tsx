@@ -7,6 +7,7 @@ import logo from "./logo-footer.png";
 import fimg from "./footer-img.jpg";
 import {CgEnter} from "react-icons/cg"
 import fimg2 from "./we-might-have-just-discovered-the-fountain-of-youth-90x72.jpg";
+import { DateIcon } from "../RightMenu/pageStyles";
 
 export default function Footer() {
   return (
@@ -31,21 +32,21 @@ export default function Footer() {
             <Image  src={fimg2} alt="img" />
             <div>
               <h2>We Went Deep...</h2>
-              <small>Febuary 29, 2018</small>
+              <small>  <DateIcon />Febuary 29, 2018</small>
             </div>
           </InnerConDiv>
           <InnerConDiv>
             <Image  src={fimg2} alt="img" />
             <div>
               <h2>We Went Deep...</h2>
-              <small>Febuary 29, 2018</small>
+              <small>   <DateIcon /> Febuary 29, 2018</small>
             </div>
           </InnerConDiv>
           <InnerConDiv>
             <Image  src={fimg2} alt="img" />
             <div>
               <h2>We Went Deep...</h2>
-              <small>Febuary 29, 2018</small>
+              <small>   <DateIcon />Febuary 29, 2018</small>
             </div>
           </InnerConDiv>
         </InnerCon>
