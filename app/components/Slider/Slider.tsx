@@ -11,7 +11,7 @@ import onion from "./onion1.jpg";
 
 export default function SliderPage() {
   return (
-    <div className="flex justify-center  border-red-500">
+    <div className="flex justify-center bg-[rgba(0,0,0,.3)] border-red-500">
       <div className=" bg-cover bg-center w-[70%] ">
         <Swiper
           slidesPerView={1}

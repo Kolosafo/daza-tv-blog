@@ -183,7 +183,7 @@ export default function RightMenu() {
         </CommentCon>
         <Rsection>
           <TopSection>
-            <div>Fun</div>
+            <span>Fun</span>
             <div>Food</div>
             <div>Sport</div>
           </TopSection>

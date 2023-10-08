@@ -24,7 +24,7 @@ export const RContainer = styled(Container)`
   display: flex;
   flex-direction: column;
   align-items: start;
-  
+
 `;
 export const RWrap = styled.div`
   display: flex;
@@ -280,4 +280,10 @@ export const TopSection = styled.div`
   div {
     padding: 0px 15px;
   }
+  span {
+    padding: 0px 15px;
+    background-color: #000;
+    color: white;
+  }
+
 `;
