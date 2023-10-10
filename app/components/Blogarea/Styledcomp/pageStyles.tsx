@@ -68,12 +68,9 @@ export const InnerSpan = styled.span`
 export const BlogCon = styled.div`
   display: flex;
   flex-direction: row;
-<<<<<<< HEAD
   flex-wrap: wrap;
   justify-content: space-between;
-=======
   
->>>>>>> 55274ecc1360ca4111a5aeeefb7151b1ab004510
   align-items: center;
   margin-bottom: 40px;
   @media only screen and (max-width: 767px) {

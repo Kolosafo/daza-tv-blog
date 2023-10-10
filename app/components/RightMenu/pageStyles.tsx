@@ -271,6 +271,7 @@ export const RTitle = styled(Title)`
 
 export const Rsection = styled.div`
   margin-top: 20px;
+  margin-bottom: 15px;
 `;
 export const TopSection = styled.div`
   display: flex;

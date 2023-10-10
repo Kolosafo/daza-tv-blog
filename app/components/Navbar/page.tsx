@@ -28,30 +28,7 @@ export default function Navbar() {
             Home
             <AiOutlineDown className="ml-3" size="1.3rem" />
           </div>
-          <div className="border-r-2 border-solid border-gray-800 h-full ml-4 p-4 items-center justify-between flex">
-            Lifestyle
-            <AiOutlineDown className="ml-3" size="1.3rem" />
-          </div>
-          <div className="border-r-2 border-solid border-gray-800 h-full ml-4 p-4 items-center justify-between flex">
-            Videos
-            <AiOutlineDown className="ml-3" size="1.3rem" />
-          </div>
-          <div className="border-r-2 border-solid border-gray-800 h-full ml-4 p-4 items-center justify-between flex">
-            World
-            <AiOutlineDown className="ml-3" size="1.3rem" />
-          </div>
-          <div className="border-r-2 border-solid border-gray-800 h-full ml-4 p-4 items-center justify-between flex">
-            Layouts
-            <AiOutlineDown className="ml-3" size="1.3rem" />
-          </div>
-          <div className="border-r-2  border-solid border-gray-800 h-full ml-4 p-4 items-center justify-between flex text-center">
-            Posts
-            <AiOutlineDown className="ml-3" size="1.3rem" />
-          </div>
-          <div className="border-r-2 border-solid border-gray-800 h-full ml-4 p-4 items-center justify-between flex">
-            Features
-            <AiOutlineDown className="ml-3" size="1.3rem" />
-          </div>
+        
           
         </div>
         <div>
