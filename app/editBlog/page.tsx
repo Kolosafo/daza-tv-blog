@@ -1,13 +1,8 @@
-import React from 'react'
-import EditBlog from '../components/EditBlog/editBlog'
+import React from "react";
+import EditBlog from "../components/EditBlog/editBlog";
 
 const Page = () => {
-    if (typeof window !== "undefined") {
-        return <EditBlog/>
-      }else{
-        <span>Loading...</span>
-      }
- 
-}
+  return <EditBlog />;
+};
 
-export default Page
+export default Page;

@@ -11,6 +11,7 @@ import { doc, getDoc, setDoc } from "firebase/firestore";
 import Image from "next/image";
 import { LOGIN } from "../../utils/createPost";
 import Navbar from "../Navbar/page";
+import Login from "../Login";
 const EditBlog = () => {
   const notify = (arg: any) => toast(arg);
   const navigate = useRouter();
@@ -25,7 +26,10 @@ const EditBlog = () => {
   const [blogId, setBlogId] = useState("");
   const [category, setCategory] = useState<any>("News");
 
-  const [runUpdate, setRunUpdate] = useState(false);
+
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+
 
   const handleChange = async (file: any) => {
     const reader = new FileReader();
@@ -53,6 +57,18 @@ const EditBlog = () => {
     navigate.push("/allBlogs");
   };
 
+  const getPrompt = () => {
+    setLoading(true);
+    if (username === LOGIN.NAME && password === LOGIN.PASSWORD) {
+    console.log("CLIKCED")
+    setIsAuth(true)
+    } else {
+    console.log("CLIKCED", username, password, LOGIN.NAME, LOGIN.PASSWORD)
+
+      notify("Incorrect Credentials");
+    }
+  };
+
   useEffect(() => {
     // console.log(postId);
     const id = params.get("id");
@@ -76,38 +92,16 @@ const EditBlog = () => {
         notify("Post Not Found");
       }
     };
+    getPost();
 
-    const getPrompt = () => {
-      setLoading(true);
-      const username = prompt("Enter username");
-      const password = prompt("Enter password");
-      if (username === LOGIN.NAME && password === LOGIN.PASSWORD) {
-        getPost();
-        setIsAuth(true)
-      } else {
-        notify("Incorrect Credentials");
-        setTimeout(() => {
-          window.location.replace("/");
-        }, 2000);
-      }
-    };
-    getPrompt();
+ 
   }, [params]);
   return (
     <>
       <Navbar />
       <ToastContainer />
-      {loading && !isAuth ? (
-        <div className="flex justify-center items-center h-[70vh]">
-          <RotatingTriangles
-            visible={true}
-            height="200"
-            width="200"
-            ariaLabel="rotating-triangels-loading"
-            wrapperStyle={{}}
-            wrapperClass="rotating-triangels-wrapper"
-          />
-        </div>
+      { !isAuth ? (
+   <Login handleLogin={getPrompt} username={username} password={password} setUsername={setUsername} setPassword={setPassword}/>
       ) : (
         <div className=" flex items-center flex-col mb-20">
           <h1 className="text-3xl font-bold">Edit Post</h1>
@@ -244,7 +238,7 @@ const EditBlog = () => {
               <input
                 type="submit"
                 value="Save"
-                className="cursor-pointer border-2 bg-green-500 text-xl font-bold my-3 rounded-md p-5"
+                className="cursor-pointer border-2 text-white bg-green-500 text-xl font-bold my-3 rounded-md p-5"
                 onClick={(e) => {
                   e.preventDefault();
                   handleUpdateBlog();

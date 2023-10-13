@@ -11,6 +11,7 @@ import Image from "next/image";
 import { LOGIN, createPost } from "../../utils/createPost";
 import dotenv from "dotenv";
 import Navbar from "../Navbar/page";
+import Login from "../Login";
 
 const CreateBlog = () => {
   dotenv.config();
@@ -24,6 +25,12 @@ const CreateBlog = () => {
   const [excerpt, setExcerpt] = useState("");
   const [coverImg, setCoverImg] = useState<any>("");
   const [status, setStatus] = useState("draft");
+
+
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+
+
   const notify = (arg: any) => toast(arg);
 
   const handleChange = async (file: any) => {
@@ -59,28 +66,21 @@ const CreateBlog = () => {
     }
   };
 
-  useEffect(() => {
-    const getPrompt = () => {
-      const username = prompt("Enter username");
-      const password = prompt("Enter password");
-      if (username === LOGIN.NAME && password === LOGIN.PASSWORD) {
-        setIsAuth(true);
-      } else {
-        notify("Incorrect Credentials");
-        setTimeout(() => {
-          window.location.reload();
-        }, 2000);
-      }
-    };
-    getPrompt();
-  }, []);
+  const getPrompt = () => {
+    if (username === LOGIN.NAME && password === LOGIN.PASSWORD) {
+      setIsAuth(true);
+    } else {
+      notify("Incorrect Credentials");
+    }
+  };
+
 
   return (
     <>
       <Navbar />
       <div className=" flex items-center flex-col mb-20">
         <ToastContainer />
-        {isAuth && (
+        {isAuth ? (
           <>
             <h1 className="text-3xl font-bold">New Post</h1>
             <div className="h-full w-[90%]">
@@ -235,7 +235,7 @@ const CreateBlog = () => {
               </form>
             </div>
           </>
-        )}
+        ): <Login handleLogin={getPrompt} username={username} password={password} setUsername={setUsername} setPassword={setPassword}/>}
       </div>
     </>
   );

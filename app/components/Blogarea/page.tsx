@@ -54,7 +54,6 @@ export default function BlogArea() {
   const Router = useRouter();
   return (
     <BlogAreaCon>
-      <ToastContainer />
       <BlogWrapper>
         <MainBlogCon>
           {/* <Container>
