@@ -17,7 +17,7 @@ import {
   MainBlogCon,
   MenuCon,
 } from "../../../components/Blogarea/Styledcomp/pageStyles";
-import RightMenu from "../../../components/RightMenu/page";
+import RightMenu from "../../../components/RightMenu/rightMenu";
 import { Container } from "../../../components/Blogarea/Styledcomp/BlogStyles";
 import Image from "next/image";
 import {
@@ -58,12 +58,11 @@ import {
 import water from "./we-went-deep-underground-for-this-shot.jpg";
 import manonwater from "./post-single-img-1-300x203.jpg";
 import { useSearchParams } from "next/navigation";
-import { BlogCategory } from "@/app/createBlog/page";
 import { doc, getDoc } from "firebase/firestore";
 import { ToastContainer, toast } from "react-toastify";
 import { db } from "@/app/firebase";
 import { Circles } from "react-loader-spinner";
-import ReactHtmlParser from "react-html-parser";
+import parse from 'html-react-parser';
 
 
 export default function BlogDetailsComp() {
@@ -77,7 +76,7 @@ export default function BlogDetailsComp() {
   const [coverImg, setCoverImg] = useState<any>("");
   const [status, setStatus] = useState("");
   const [blogId, setBlogId] = useState("");
-  const [category, setCategory] = useState<BlogCategory>(BlogCategory.News);
+  const [category, setCategory] = useState<any>("News");
 
   useEffect(() => {
     const id = params.get("id");
@@ -141,7 +140,7 @@ export default function BlogDetailsComp() {
 
                   <DetailsMidSec>
                     {" "}
-                    {ReactHtmlParser(postContentValue)}
+                    {parse(postContentValue)}
                   </DetailsMidSec>
                 </DetailsSection>
               </DetailsWrap>

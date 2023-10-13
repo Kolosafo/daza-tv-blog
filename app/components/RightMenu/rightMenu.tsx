@@ -1,8 +1,4 @@
 import React from "react";
-import { BgImg, Container, InnerSpan } from "../Blogarea/Styledcomp/pageStyles";
-import Image from "next/image";
-import lady2 from "./these-teens-are-crazy-for-beach-soccer-117x84.jpg"
-import git from "./the-unplugged-concert-well-always-remember-117x84.jpg"
 import {
   Comment,
   CommentCon,
@@ -13,13 +9,9 @@ import {
   Con5,
   Con6,
   ConDiv,
-  DateIcon,
   Face,
   Insta,
-  LCon,
-  Linkd,
   RBgImg,
-  RCommentCon,
   RCon,
   RContainer,
   RTitle,
@@ -33,16 +25,6 @@ import {
   Twit,
   Yt,
 } from "./pageStyles";
-import smoke from "./vote-for-the-top-tracks-of-the-month-117x84.jpg";
-import lady from "./natural-sunlight-can-boost-your-immune-system-117x84.jpg";
-import Rimg from "../Blogarea/assets/we-went-deep-underground-for-this-shot-600x384.jpg";
-import bgimage from "../Blogarea/assets/11231.png";
-import {
-  ContentContainer,
-  Date,
-  ImageContainer,
-  Title,
-} from "../Blogarea/Styledcomp/BlogStyles";
 import { useRouter } from "next/navigation";
 
 export default function RightMenu() {

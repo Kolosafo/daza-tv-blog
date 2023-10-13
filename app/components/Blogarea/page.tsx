@@ -15,7 +15,7 @@ import bgimage from "./assets/11231.png";
 import Image from "next/image";
 import RecentBlog from "./RecentBlog";
 import LatestNews from "./LatestNews";
-import RightMenu from "../RightMenu/page";
+import RightMenu from "../RightMenu/rightMenu";
 import { useRouter } from "next/navigation";
 import { getPosts } from "@/app/utils/getBlogs";
 import { Circles } from "react-loader-spinner";
