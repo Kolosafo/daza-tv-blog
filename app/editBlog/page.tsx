@@ -1,6 +1,12 @@
 import React from "react";
-import EditBlog from "../components/EditBlog/editBlog";
+import dynamic from "next/dynamic";
 
+const EditBlog = dynamic(
+  () => {
+    return import("../components/EditBlog/editBlog");
+  },
+  { ssr: false }
+);
 const Page = () => {
   return <EditBlog />;
 };

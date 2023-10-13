@@ -68,30 +68,30 @@ const EditBlog = () => {
       notify("Incorrect Credentials");
     }
   };
+ 
+  const getPost = async () => {
+  setLoading(true);
+  const docSnap = await getDoc(docRef);
+
+    if (docSnap.exists()) {
+      const res = docSnap.data();
+
+      setTitle(res.title);
+      setExcerpt(res.excerpt);
+      setPostContentValue(res.content);
+      setCoverImg(res.coverImg);
+      setStatus(res.status);
+      setBlogId(id);
+      setCategory(res.category);
+      setLoading(false);
+    } else {
+      notify("Post Not Found");
+    }
+  };
 
   useEffect(() => {
     // console.log(postId);
-    const id = params.get("id");
-    const docRef = doc(db, "posts", id);
-    setLoading(true);
-    const getPost = async () => {
-      const docSnap = await getDoc(docRef);
 
-      if (docSnap.exists()) {
-        const res = docSnap.data();
-
-        setTitle(res.title);
-        setExcerpt(res.excerpt);
-        setPostContentValue(res.content);
-        setCoverImg(res.coverImg);
-        setStatus(res.status);
-        setBlogId(id);
-        setCategory(res.category);
-        setLoading(false);
-      } else {
-        notify("Post Not Found");
-      }
-    };
     getPost();
 
  
