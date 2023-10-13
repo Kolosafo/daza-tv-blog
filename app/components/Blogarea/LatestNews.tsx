@@ -1,4 +1,4 @@
-import React from "react";
+import { FC } from "react";
 import { BotCon, MainCon, TopCon } from "./Styledcomp/LatestNewsStyles";
 import Image from "next/image";
 import girl1 from "./assets/what-we-should-really-be-playing-on-rnb-stations-970x500.jpg";
@@ -13,20 +13,43 @@ import {
 import { BsFillShareFill } from "react-icons/bs";
 import { BiCommentDetail } from "react-icons/bi";
 import { DateIcon } from "../RightMenu/pageStyles";
-export default function LatestNews() {
+import { useRouter } from "next/navigation";
+type Props = {
+  coverImg: string;
+  title: string;
+  excerpt: string;
+  id: string;
+};
+const LatestNews: FC<Props> = ({ coverImg, title, excerpt, id }) => {
+  const Router = useRouter();
   return (
     <MainCon>
       <TopCon>
-        <Image src={girl1} alt="girl" />
+        <Image
+          width={200}
+          height={200}
+          className="w-full"
+          src={coverImg}
+          alt="coverImg"
+        />
       </TopCon>
       <BotCon>
         <ContentContainer>
-          <Title>The Best Sports For A Hard...</Title>
-          <Date>  <DateIcon />February 19, 2019</Date>
-          <Description>
-            Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean
-            commodo ligula eget dolor. Aenean massa.
-          </Description>
+          <Title
+            onClick={() => {
+              title !== "No Posts Yet"
+                ? Router.push(`/BlogDetails/?id=${id}`)
+                : "";
+            }}
+          >
+            {title}
+          </Title>
+          {/* <Date>
+            {" "}
+            <DateIcon />
+            February 19, 2019
+          </Date> */}
+          <Description>{excerpt}</Description>
         </ContentContainer>
         <Footer>
           <ShareLink>
@@ -39,4 +62,6 @@ export default function LatestNews() {
       </BotCon>
     </MainCon>
   );
-}
+};
+
+export default LatestNews;

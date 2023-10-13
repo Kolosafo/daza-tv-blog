@@ -3,6 +3,11 @@
 @tailwind utilities;
 
 body {
-  @apply text-lg text-[#6c6b6b] bg-[#e6e7e8] overflow-x-hidden !overflow-x-auto
+  @apply text-lg text-[#6c6b6b] bg-[#e6e7e8] overflow-x-hidden !overflow-x-auto;
 }
 
+@layer components {
+  .customBtn {
+    @apply bg-[#4f46e5] text-gray-100 rounded-md px-3 sm:px-5 py-3 font-bold justify-center text-center md:text-sm cursor-pointer text-xs hover:opacity-80 flex items-center space-x-2;
+  }
+}

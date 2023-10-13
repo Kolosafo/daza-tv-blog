@@ -7,6 +7,7 @@ import {
   FaInstagram,
   FaYoutube,
   FaComments,
+  FaTiktok,
 } from "react-icons/fa";
 import { CiCalendarDate } from "react-icons/ci";
 import { Title } from "../Blogarea/Styledcomp/BlogStyles";
@@ -33,6 +34,7 @@ export const RWrap = styled.div`
 export const RWrap2 = styled(RWrap)`
   margin-top: 20px;
   margin-bottom: 20px;
+  cursor: pointer;
 `;
 export const Rinnerspan = styled(InnerSpan)`
   color: white;
@@ -78,7 +80,7 @@ export const Face = styled(FaFacebookSquare)`
   font-size: 35px;
   position: absolute;
 `;
-export const Twit = styled(FaTwitter)`
+export const Twit = styled(FaTiktok)`
   font-size: 35px;
   position: absolute;
 `;
@@ -103,6 +105,7 @@ export const Con1 = styled.div`
   justify-content: center;
   align-items: center;
   width: 100px;
+  cursor: pointer;
   height: 100px;
   margin: 2px;
   flex-direction: column;
@@ -124,6 +127,7 @@ export const Con2 = styled.div`
   justify-content: center;
   align-items: center;
   width: 100px;
+  cursor: pointer;
   height: 100px;
   margin: 2px;
   flex-direction: column;
@@ -146,6 +150,7 @@ export const Con3 = styled.div`
   align-items: center;
   width: 100px;
   height: 100px;
+  cursor: pointer;
   margin: 2px;
   flex-direction: column;
   background-color: #3f729b;
@@ -167,6 +172,7 @@ export const Con4 = styled.div`
   align-items: center;
   width: 100px;
   height: 100px;
+  cursor: pointer;
   margin: 2px;
   flex-direction: column;
   background-color: #e52d27;
@@ -184,6 +190,7 @@ export const Con4 = styled.div`
 `;
 export const Con5 = styled.div`
   display: flex;
+  cursor: pointer;
   justify-content: center;
   align-items: center;
   width: 100px;

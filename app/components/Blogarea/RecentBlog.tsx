@@ -1,4 +1,4 @@
-import React from "react";
+import { FC, useState, useEffect } from "react";
 import {
   Container,
   ContentContainer,
@@ -10,57 +10,71 @@ import {
   Title,
 } from "./Styledcomp/BlogStyles";
 import Image from "next/image";
-import onion from "../Slider/onion1.jpg"
-import men from "../Slider/men1.jpg"
+import onion from "../Slider/onion1.jpg";
+import men from "../Slider/men1.jpg";
 import img from "./assets/the-best-sports-for-a-demanding-workout-1024x569.jpg";
-import { BotCon, BottomDiv, ImgCon, RecentShareLink, TextCon } from "./Styledcomp/RecentBlogsStyles";
+import {
+  BotCon,
+  BottomDiv,
+  ImgCon,
+  RecentShareLink,
+  TextCon,
+} from "./Styledcomp/RecentBlogsStyles";
 import { DateIcon } from "../RightMenu/pageStyles";
+import { useRouter } from "next/navigation";
+import { getPosts } from "@/app/utils/getBlogs";
 
-export default function RecentBlog() {
+type Props = {
+  position: number;
+};
+const RecentBlog: FC<Props> = ({ position }) => {
+  const [loading, setLoading] = useState(true);
+  const [posts, setPosts] = useState<any>([]);
+  const Router = useRouter();
+  const getAllPosts = async () => {
+    setLoading(true);
+    const res = await getPosts();
+    setPosts(res);
+    setLoading(false);
+  };
+
+  useEffect(() => {
+    getAllPosts();
+  }, []);
   return (
     <Container>
       <ImageContainer>
-        <Image width={600} src={img} alt="imghere" />
+        <Image
+          width={600}
+          src={
+            position === 1
+              ? posts[0].coverImg
+              : posts[1].coverImg
+              ? posts[1].coverImg
+              : posts[0].coverImg
+          }
+          alt="img"
+        />
       </ImageContainer>
       <ContentContainer>
-        <Title>The Best Sports For A Hard...</Title>
-        <Date>  <DateIcon />February 19, 2019</Date>
+        <Title>
+          {position === 1
+            ? posts[0].title
+            : posts[1].title
+            ? posts[1].title
+            : posts[0].title}
+        </Title>
+        <Date>
+          {" "}
+          <DateIcon />
+          {position === 1
+            ? posts[0].excerpt
+            : posts[1].excerpt
+            ? posts[1].excerpt
+            : posts[0].excerpt}
+        </Date>
       </ContentContainer>
-      <Footer>
-        <RecentShareLink>
-          <p>Share /</p> <p>Comments /</p> <span>11902 Views</span> <p> Read More</p>
-        </RecentShareLink>
-        <BottomDiv>
-            <BotCon>
-            <ImgCon>
-                <Image width={100} src={men} alt="img" />
-            </ImgCon>
-            <TextCon>
-                <h2>Watching Global Warming in Action</h2>
-                <p>   <DateIcon />Febuary 29, 2019</p>
-            </TextCon>
-            </BotCon>
-            <BotCon>
-            <ImgCon>
-                <Image width={100} src={onion} alt="img" />
-            </ImgCon>
-            <TextCon>
-                <h2>Watching Global Warming in Action</h2>
-                <p>   <DateIcon />Febuary 29, 2019</p>
-            </TextCon>
-            </BotCon>
-            <BotCon>
-            <ImgCon>
-                <Image width={100} src={img} alt="img" />
-            </ImgCon>
-            <TextCon>
-                <h2>Watching Global Warming in Action</h2>
-                <p>   <DateIcon />Febuary 29, 2019</p>
-            </TextCon>
-            </BotCon>
-
-        </BottomDiv>
-      </Footer>
     </Container>
   );
-}
+};
+export default RecentBlog;

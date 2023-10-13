@@ -31,10 +31,16 @@ export const ShareLink = styled.p`
   }
 `;
 export const Title = styled.h2`
-  font-size: 1.5rem; /* Equivalent to text-2xl in Tailwind */
+  font-size: 1.2rem; /* Equivalent to text-2xl in Tailwind */
   margin-bottom: 9px; /* Equivalent to 4px in Tailwind */
   font-weight: bold;
+  cursor: pointer;
   color: black;
+  &:hover ${ShareLink} {
+    transition: 0.5s all ease-in-out;
+    color: white;
+
+  }
 `;
 
 export const Container = styled.div`

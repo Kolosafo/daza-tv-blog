@@ -16,6 +16,7 @@ export const BlogWrapper = styled.div`
   
   @media only screen and (max-width: 767px) {
     flex-direction: column;
+  width: 95%;
   }
 `;
 export const MainBlogCon = styled.div`

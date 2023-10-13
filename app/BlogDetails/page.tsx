@@ -17,6 +17,7 @@ export default function BlogDetails() {
     {/* <Navbar /> */}
     {/* <Slider/> */}
     {/* <BlogArea/> */}
+      <Navbar />
      <BlogDetailsComp/>
      <Footer/>
     <DetailsUppernav /> 

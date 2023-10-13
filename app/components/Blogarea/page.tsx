@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import { useState, useEffect } from "react";
 import SingleBlog from "./SingleBlog";
 import {
   BgImg,
@@ -16,22 +16,57 @@ import Image from "next/image";
 import RecentBlog from "./RecentBlog";
 import LatestNews from "./LatestNews";
 import RightMenu from "../RightMenu/page";
+import { useRouter } from "next/navigation";
+import { getPosts } from "@/app/utils/getBlogs";
+import { Circles } from "react-loader-spinner";
+import { getYouTubeThumbnails } from "@/app/utils/ytApi";
+import { RBgImg, RWrap2, Rinnerspan } from "../RightMenu/pageStyles";
+import { ToastContainer, toast } from "react-toastify";
 
 export default function BlogArea() {
+  const notify = (arg: any) => toast(arg);
+  const [loading, setLoading] = useState(true);
+  const [posts, setPosts] = useState<any>([]);
+  const [youtubePosts, setYouTubePosts] = useState<any>(null);
+
+  const getAllPosts = async () => {
+    setLoading(true);
+    const res = await getPosts();
+    setPosts(res);
+    const youtubeVideos = await getYouTubeThumbnails();
+    setYouTubePosts(youtubeVideos);
+    setLoading(false);
+  };
+
+  // const getYtVideos = async () => {
+  //   setLoading(true);
+  //   const youtubeVideos = await getYouTubeThumbnails();
+  //   setYouTubePosts(youtubeVideos);
+  //   setLoading(false);
+  // };
+
+  useEffect(() => {
+    getAllPosts().catch((e) => {
+      notify("An Error Occured");
+    });
+    // getYtVideos();
+  }, []);
+  const Router = useRouter();
   return (
     <BlogAreaCon>
+      <ToastContainer />
       <BlogWrapper>
         <MainBlogCon>
-          <Container>
+          {/* <Container>
             <InnerSpan>Recent posts</InnerSpan>
             <BgImg>
               <Image height={40} src={bgimage} alt="img" />
             </BgImg>
           </Container>
           <BlogCon>
-            <RecentBlog />
-            <RecentBlog />
-          </BlogCon>
+            {/* <RecentBlog position={1} />
+            <RecentBlog position={2} /> 
+          </BlogCon> */}
           <Container>
             <InnerSpan>Latest News</InnerSpan>
             <BgImg>
@@ -39,23 +74,96 @@ export default function BlogArea() {
             </BgImg>
           </Container>
           <BlogCon>
-            <LatestNews />
+            {loading && posts.length === 0 ? (
+              <div className="flex justify-center w-[60vw] items-center h-[70vh]">
+                <Circles
+                  height="80"
+                  width="80"
+                  color="#4fa94d"
+                  ariaLabel="circles-loading"
+                  wrapperStyle={{}}
+                  wrapperClass=""
+                  visible={true}
+                />
+              </div>
+            ) : (
+              <>
+                {console.log(posts)}
+                <LatestNews
+                  title={posts[0].title ? posts[0].title : "No Posts Yet"}
+                  coverImg={posts[0].coverImg ? posts[0].coverImg : ""}
+                  excerpt={posts[0].excerpt ? posts[0].excerpt : "No Post Yet"}
+                  id={posts[0].id ? posts[0].id : "No Posts Yet"}
+                />
+              </>
+            )}
           </BlogCon>
 
           <Container>
-            <InnerSpan>Reports</InnerSpan>
+            <InnerSpan className=" whitespace-nowrap">YouTube Videos</InnerSpan>
             <BgImg>
               <Image height={40} src={bgimage} alt="img" />
             </BgImg>
           </Container>
-          <BlogCon>
-            <SingleBlog />
-            <SingleBlog />
-          </BlogCon>
-          <BlogCon>
-            <SingleBlog />
-            <SingleBlog />
-          </BlogCon>
+          {/* YOUTUBE */}
+          {youtubePosts ? (
+            <>
+              <BlogCon>
+                <SingleBlog
+                  thumbnail={youtubePosts[0].snippet.thumbnails.high.url}
+                  title={youtubePosts[0].snippet.title}
+                  datePublished={youtubePosts[0].snippet.publishAt}
+                  description={youtubePosts[0].snippet.description}
+                  id={youtubePosts[0].id.videoId}
+                />
+                <SingleBlog
+                  thumbnail={youtubePosts[1].snippet.thumbnails.high.url}
+                  title={youtubePosts[1].snippet.title}
+                  datePublished={youtubePosts[1].snippet.publishAt}
+                  description={youtubePosts[1].snippet.description}
+                  id={youtubePosts[1].id.videoId}
+                />
+              </BlogCon>
+              <BlogCon>
+                <SingleBlog
+                  thumbnail={youtubePosts[2].snippet.thumbnails.high.url}
+                  title={youtubePosts[2].snippet.title}
+                  datePublished={youtubePosts[2].snippet.publishAt}
+                  description={youtubePosts[2].snippet.description}
+                  id={youtubePosts[2].id.videoId}
+                />
+                <SingleBlog
+                  thumbnail={youtubePosts[3].snippet.thumbnails.high.url}
+                  title={youtubePosts[3].snippet.title}
+                  datePublished={youtubePosts[3].snippet.publishAt}
+                  description={youtubePosts[3].snippet.description}
+                  id={youtubePosts[3].id.videoId}
+                />
+              </BlogCon>
+            </>
+          ) : (
+            <div className="flex justify-center items-center w-full h-[70vh]">
+              <Circles
+                height="80"
+                width="80"
+                color="#4fa94d"
+                ariaLabel="circles-loading"
+                wrapperStyle={{}}
+                wrapperClass=""
+                visible={true}
+              />
+            </div>
+          )}
+          <RWrap2
+            className="py-5 bg-orange-600 flext justify-center items-center text-white font-bold"
+            onClick={() => Router.push("/allBlogs")}
+          >
+            <span className="color-white">More Posts</span>
+
+            {/* <Rinnerspan>More Posts</Rinnerspan> */}
+            <RBgImg></RBgImg>
+          </RWrap2>
+          {/* MORE NEWS */}
         </MainBlogCon>
         <MenuCon>
           <RightMenu />
