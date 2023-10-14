@@ -23,7 +23,6 @@ export const TitleText = styled.div`
 
   p {
     display: flex;
-
     margin-right: 10px;
     margin-left: 10px;
     &:hover {

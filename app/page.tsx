@@ -1,21 +1,21 @@
-import Image from 'next/image'
-import Uppernav from './components/UpperNav/page'
-import Navbar from './components/Navbar/page'
-import Slider from './components/Slider/page'
-import BlogArea from './components/Blogarea/page'
-import Footer from './components/Footer/page'
-import UpperNavMobile from './components/UpperNav/UpperNavMobile'
+import React, { useState } from "react";
+import Uppernav from "./components/UpperNav/page";
+import Navbar from "./components/Navbar/page";
+import Slider from "./components/Slider/page";
+import BlogArea from "./components/Blogarea/page";
+import Footer from "./components/Footer/page";
+import UpperNavMobile from "./components/UpperNav/UpperNavMobile";
 
-export default function Home() {
+const Home = () => {
   return (
-    <main className="w-full overflow-hidden">
-      <UpperNavMobile/>
+    <main className=" relative w-full overflow-hidden">
+      <UpperNavMobile />
       <Navbar />
       <Slider />
       <BlogArea />
-      <Footer/>
+      <Footer />
       <Uppernav />
-      
     </main>
-  )
-}
+  );
+};
+export default Home;
