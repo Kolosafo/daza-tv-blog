@@ -14,21 +14,20 @@ const Navbar = () => {
   return (
     <main className="bg-[white] w-full border  ">
       <nav className="h-full flex justify-between md:py-8 py-5 m-auto md:w-[70%] w-full">
-        <div className="md:ml-0 -ml-10 cursor-pointer">
+        <div className="Bmd:ml-0 -ml-20 cursor-pointer flex justify-start items-start">
           <Image width={400} src={logo} alt="logohere" onClick={() => {
             Router.push(`/`);
           }} />
         </div>
-        <div className="hidden h-full items-center justify-center  lg:flex">
-            {/* <FaBars size="2rem" /> */}
+        <div className=" h-full items-center justify-center mr-10 sm:hidden">
             <SidebarNav  />
 
           </div>
-        <div className="lg:hidden">
+        <div className="xmd:hidden">
           <Image width={400} src={header} alt="header" />
         </div>
       </nav>
-      <nav className="bg-gray-900 text-white w-full h-[50px] flex justify-between text-sm lg:hidden">
+      <nav className="bg-gray-900 text-white w-full h-[50px] flex justify-between text-sm xmd:hidden "> 
         <div className="h-full flex flex-row-reverse justify-start items-center  m-auto w-[70%]">
           <div className="border-l-2 border-solid border-gray-800 h-full pl-4 items-center justify-center flex">
           <SidebarNav />
