@@ -1,24 +1,24 @@
 import Image from 'next/image'
-import Uppernav from './components/UpperNav/page'
-import Navbar from './components/Navbar/page'
-import Slider from './components/Slider/page'
-import BlogArea from './components/Blogarea/page'
-import Footer from './components/Footer/page'
-import UpperNavMobile from './components/UpperNav/UpperNavMobile'
 import { ToastContainer } from 'react-toastify'
+import React, {  } from "react";
+import Uppernav from "./components/UpperNav/page";
+import Navbar from "./components/Navbar/page";
+import Slider from "./components/Slider/page";
+import BlogArea from "./components/Blogarea/page";
+import Footer from "./components/Footer/page";
+import UpperNavMobile from "./components/UpperNav/UpperNavMobile";
 
-export default function Home() {
+const Home = () => {
   return (
-    <main className="w-full overflow-hidden">
+    <main className=" relative w-full overflow-hidden">
       <ToastContainer />
-
-      <UpperNavMobile/>
+      <UpperNavMobile />
       <Navbar />
       <Slider />
       <BlogArea />
-      <Footer/>
+      <Footer />
       <Uppernav />
-      
     </main>
-  )
-}
+  );
+};
+export default Home;

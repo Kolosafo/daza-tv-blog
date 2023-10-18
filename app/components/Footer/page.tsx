@@ -1,15 +1,24 @@
 "use client";
 import React from "react";
-import { Comment, Contact, FCon, FContainer, InnerCon, InnerConDiv } from "./PageStyles";
+import {
+  Comment,
+  Contact,
+  FCon,
+  FContainer,
+  InnerCon,
+  InnerConDiv,
+} from "./PageStyles";
 import Image from "next/image";
 import bgimg from "./footer-background.jpg";
 import logo from "./logo-footer.png";
 import fimg from "./footer-img.jpg";
-import {CgEnter} from "react-icons/cg"
+import { CgEnter } from "react-icons/cg";
 import fimg2 from "./we-might-have-just-discovered-the-fountain-of-youth-90x72.jpg";
 import { DateIcon } from "../RightMenu/pageStyles";
+import { useRouter } from "next/navigation";
 
 export default function Footer() {
+  const Router = useRouter();
   return (
     <FContainer>
       {/* <Image src={bgimg} alt="img"/> */}
@@ -17,40 +26,15 @@ export default function Footer() {
         <InnerCon>
           <Image width={200} src={logo} alt="logo" />
           <div></div>
-          <Image width={200} src={fimg} alt="logo" />
+          <Image width={200} height={200} src="/logo.jpg" alt="logo" />
           <div></div>
           <h2>Address</h2>
           <p>
-            Minna, Niger State : E:
-            dazatv@gmail.com.com P: +234 (0) 0 0000 000
+            Minna, Niger State : E: dazatv@gmail.com.com P: +234 (0) 0 0000 000
           </p>
         </InnerCon>
-        <InnerCon>
-          <h2>Recent Posts</h2>
 
-          <InnerConDiv>
-            <Image  src={fimg2} alt="img" />
-            <div>
-              <h2>We Went Deep...</h2>
-              <small>  <DateIcon />Febuary 29, 2018</small>
-            </div>
-          </InnerConDiv>
-          <InnerConDiv>
-            <Image  src={fimg2} alt="img" />
-            <div>
-              <h2>We Went Deep...</h2>
-              <small>   <DateIcon /> Febuary 29, 2018</small>
-            </div>
-          </InnerConDiv>
-          <InnerConDiv>
-            <Image  src={fimg2} alt="img" />
-            <div>
-              <h2>We Went Deep...</h2>
-              <small>   <DateIcon />Febuary 29, 2018</small>
-            </div>
-          </InnerConDiv>
-        </InnerCon>
-        <InnerCon>
+        {/* <InnerCon>
           <h2>Recent Comments</h2>
           <Comment>
             <p>Digital Watch</p>
@@ -70,10 +54,17 @@ export default function Footer() {
           <button> <CgEnter /></button>
           </div>
           </Contact>
-        </InnerCon>
-        <InnerCon>
-            <h2>Follow us on Twitter</h2>
-            <p>Could not Connect to Twitter</p>
+        </InnerCon> */}
+        <InnerCon
+          className=" cursor-pointer underline"
+          onClick={() => {
+            Router.push(
+              "https://www.youtube.com/channel/UCb4BvFRquPfEEmpwFYiMAog"
+            );
+          }}
+        >
+          <h2>Follow us on YouTube</h2>
+          {/* <p>Could not Connect to Twitter</p> */}
         </InnerCon>
       </FCon>
     </FContainer>

@@ -9,27 +9,26 @@ import girl from "./girl1.jpg";
 import men from "./men1.jpg";
 import onion from "./onion1.jpg";
 
-export default function SliderPage() {
+const SliderPage = () => {
   return (
-    <div className="flex justify-center bg-[rgba(0,0,0,.3)]  border-red-500">
+    <div className="  flex justify-center bg-[rgba(0,0,0,.3)]  ">
       <div className=" bg-cover bg-center md:w-[40%] w-4/5 ">
         <Swiper
+          className=""
           slidesPerView={1}
           centeredSlides={true}
           autoplay={{
             delay: 4000,
             disableOnInteraction: false,
           }}
-            pagination={{
-              clickable: true,
-            }}
-            // navigation={true}
+          pagination={{
+            clickable: true,
+          }}
+          // navigation={true}
           modules={[Autoplay, Pagination, Navigation]}
-          //   onSlideChange={() => console.log('slide change')}
-          //   onSwiper={(swiper) => console.log(swiper)}
         >
           {" "}
-          <SwiperSlide>
+          <SwiperSlide className="">
             <Image
               className="w-full"
               src={girl}
@@ -65,7 +64,7 @@ export default function SliderPage() {
           </SwiperSlide>
         </Swiper>
       </div>
-
     </div>
   );
-}
+};
+export default SliderPage;

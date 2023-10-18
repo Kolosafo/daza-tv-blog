@@ -1,10 +1,12 @@
 import React from 'react'
 import SliderPage from './Slider'
 
-export default function Slider() {
+
+const Slider  = () => {
   return (
-    <div>
-      <SliderPage />
+    <div >
+      <SliderPage  />
     </div>
   )
 }
+export default  Slider;

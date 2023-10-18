@@ -6,8 +6,10 @@ import header from "./header-banner.jpg";
 import { FaBars } from "react-icons/fa";
 import { AiOutlineDown } from "react-icons/ai";
 import { useRouter } from "next/navigation";
+import SidebarNav from "../Sidebar/sidebar";
 
-export default function Navbar() {
+
+const Navbar = () => {
   const Router= useRouter()
   return (
     <main className="bg-[white] w-full border  ">
@@ -17,17 +19,19 @@ export default function Navbar() {
             Router.push(`/`);
           }} />
         </div>
-        <div className="hidden  h-full pl-4 items-center justify-center  lg:flex">
-            <FaBars size="2rem" />
+        <div className="hidden h-full items-center justify-center  lg:flex">
+            {/* <FaBars size="2rem" /> */}
+            <SidebarNav  />
+
           </div>
         <div className="lg:hidden">
           <Image width={400} src={header} alt="header" />
         </div>
       </nav>
-      <nav className="bg-[#0d0d0d] text-white w-full h-[50px] flex justify-between text-sm lg:hidden">
-        <div className="h-full flex justify-start items-center  m-auto w-[70%]">
+      <nav className="bg-gray-900 text-white w-full h-[50px] flex justify-between text-sm lg:hidden">
+        <div className="h-full flex flex-row-reverse justify-start items-center  m-auto w-[70%]">
           <div className="border-l-2 border-solid border-gray-800 h-full pl-4 items-center justify-center flex">
-            <FaBars size="2rem" />
+          <SidebarNav />
           </div>
           <div className="bg-[#fb4c35] border-r-1 border-solid border-gray-800 h-full ml-4 p-4 items-center justify-between flex">
             Home
@@ -43,3 +47,4 @@ export default function Navbar() {
     </main>
   );
 }
+export default  Navbar;
