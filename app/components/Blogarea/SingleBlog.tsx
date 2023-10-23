@@ -3,6 +3,7 @@ import Image from "next/image";
 import { FC } from "react";
 import img from "./assets/we-went-deep-underground-for-this-shot-600x384.jpg";
 import {
+  CategorySpan,
   Container,
   ContentContainer,
   Date,
@@ -23,6 +24,8 @@ type Props = {
   description: string;
   datePublished: string;
   id: string;
+  category?: string;
+  isPost?: boolean;
 };
 const SingleBlog: FC<Props> = ({
   title,
@@ -30,17 +33,35 @@ const SingleBlog: FC<Props> = ({
   id,
   description,
   datePublished,
+  category,
+  isPost
 }) => {
   const Router = useRouter();
   return (
     <Container>
+      {category && (
+        <CategorySpan>
+          <span
+            style={{
+              width: "10px",
+              padding: "5px",
+              marginRight: "2px",
+              backgroundColor: "orangered",
+            }}
+          ></span>
+          {category}
+        </CategorySpan>
+      )}
+
       <ImageContainer>
         <img width={600} height={300} src={thumbnail} alt="thumbnail" />
       </ImageContainer>
       <ContentContainer>
         <Title
           onClick={() => {
-            Router.push(`http://www.youtube.com/watch?v=${id}`);
+            !isPost
+              ? Router.push(`http://www.youtube.com/watch?v=${id}`)
+              : Router.push(`/BlogDetails/?id=${id}`);
           }}
         >
           {title}

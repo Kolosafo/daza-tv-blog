@@ -45,6 +45,7 @@ export const Title = styled.h2`
 
 export const Container = styled.div`
   display: flex;
+  position: relative;
   flex-direction: column;
   align-items: flex-start;
   justify-content: center;
@@ -70,6 +71,19 @@ export const Container = styled.div`
    
     
   }
+`;
+
+export const CategorySpan = styled.span`
+position: absolute;
+top: 0;
+left: 0;
+background-color: black;
+padding-left: 13px;
+display: flex;
+align-items: center;
+padding-right: 10px;
+text-align: center;
+color: white;
 `;
 
 export const ImageContainer = styled.div``;

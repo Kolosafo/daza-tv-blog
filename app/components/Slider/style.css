@@ -1,0 +1,8 @@
+.blur-bg {
+  background-image: url("/blurbg.png");
+  width: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding: 2rem;
+}

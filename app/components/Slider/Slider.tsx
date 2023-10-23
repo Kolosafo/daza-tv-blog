@@ -5,14 +5,15 @@ import "swiper/css/pagination";
 import "swiper/css/navigation";
 import { Autoplay, Pagination, Navigation } from "swiper/modules";
 import Image from "next/image";
-import girl from "./girl1.jpg";
-import men from "./men1.jpg";
-import onion from "./onion1.jpg";
+import girl from "./1.jpg";
+import men from "./2.png";
+import onion from "./3.png";
+import "./style.css"
 
 const SliderPage = () => {
   return (
-    <div className="  flex justify-center bg-[#CECECE]  ">
-      <div className=" bg-cover bg-center md:w-[40%] w-full ">
+    <div className="blur-bg  flex justify-center bg-[#CECECE]  ">
+      <div className=" bg-cover bg-center md:w-[60%] w-full ">
         <Swiper
           className=""
           slidesPerView={1}

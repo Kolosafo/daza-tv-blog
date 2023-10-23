@@ -14,8 +14,7 @@ export const FCon = styled.div`
   justify-content: space-between;
   flex-wrap: wrap;
   @media only screen and (max-width: 767px) {
-   flex-direction: column;
-   
+    flex-direction: column;
   }
 `;
 
@@ -51,6 +50,7 @@ export const InnerConDiv = styled.div`
   div {
     text-align: start;
     h2 {
+      cursor: pointer;
       text-align: start;
       font-size: 17px;
       font-weight: 700;
@@ -60,14 +60,14 @@ export const InnerConDiv = styled.div`
         transition: 0.3s ease-in-out;
       }
     }
-    small{
+    small {
       display: flex;
-      
+      line-height: 18px;
     }
   }
 
   @media only screen and (max-width: 1400px) {
-      flex-direction: column;
+    flex-direction: column;
   }
 `;
 export const Comment = styled.div`

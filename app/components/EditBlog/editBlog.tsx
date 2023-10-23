@@ -1,5 +1,5 @@
 "use client";
-import "./editorStyle.css"
+import "./editorStyle.css";
 import { useEffect, useState } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import ReactQuill from "react-quill";
@@ -24,12 +24,11 @@ const EditBlog = () => {
   const [isAuth, setIsAuth] = useState(false);
   const [status, setStatus] = useState("");
   const [blogId, setBlogId] = useState("");
+  const [error, setError] = useState("");
   const [category, setCategory] = useState<any>("News");
-
 
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-
 
   const handleChange = async (file: any) => {
     const reader = new FileReader();
@@ -53,25 +52,27 @@ const EditBlog = () => {
       category,
       status,
     });
+    setLoading(false);
     notify("Blog Updated");
-    navigate.push("/allBlogs");
+    navigate.push("/admin");
   };
 
   const getPrompt = () => {
     setLoading(true);
     if (username === LOGIN.NAME && password === LOGIN.PASSWORD) {
-    console.log("CLIKCED")
-    setIsAuth(true)
+      console.log("CLIKCED");
+      setIsAuth(true);
     } else {
-    console.log("CLIKCED", username, password, LOGIN.NAME, LOGIN.PASSWORD)
+      console.log("CLIKCED", username, password, LOGIN.NAME, LOGIN.PASSWORD);
 
       notify("Incorrect Credentials");
     }
+    setLoading(false);
   };
- 
+
   const getPost = async () => {
-  setLoading(true);
-  const docSnap = await getDoc(docRef);
+    setLoading(true);
+    const docSnap = await getDoc(docRef);
 
     if (docSnap.exists()) {
       const res = docSnap.data();
@@ -87,21 +88,26 @@ const EditBlog = () => {
     } else {
       notify("Post Not Found");
     }
+    setLoading(false);
   };
 
   useEffect(() => {
     // console.log(postId);
 
     getPost();
-
- 
   }, [params]);
   return (
     <>
       <Navbar />
       <ToastContainer />
-      { !isAuth ? (
-   <Login handleLogin={getPrompt} username={username} password={password} setUsername={setUsername} setPassword={setPassword}/>
+      {!isAuth ? (
+        <Login
+          handleLogin={getPrompt}
+          username={username}
+          password={password}
+          setUsername={setUsername}
+          setPassword={setPassword}
+        />
       ) : (
         <div className=" flex items-center flex-col mb-20">
           <h1 className="text-3xl font-bold">Edit Post</h1>
@@ -234,14 +240,19 @@ const EditBlog = () => {
                 <option value="draft">draft</option>
                 <option value="publish">publish</option>
               </select>
-
+              <span className="text-[orangered]">{error}</span>
               <input
                 type="submit"
-                value="Save"
+                value={loading ? "Saving..." : "Save"}
+                disabled={loading}
                 className="cursor-pointer border-2 text-white bg-green-500 text-xl font-bold my-3 rounded-md p-5"
                 onClick={(e) => {
                   e.preventDefault();
-                  handleUpdateBlog();
+                  setError("");
+                  handleUpdateBlog().catch((e) => {
+                    setLoading(false);
+                    setError("Image too large");
+                  });
                 }}
               />
             </form>

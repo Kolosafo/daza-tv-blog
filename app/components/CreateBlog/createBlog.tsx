@@ -25,6 +25,7 @@ const CreateBlog = () => {
   const [excerpt, setExcerpt] = useState("");
   const [coverImg, setCoverImg] = useState<any>("");
   const [status, setStatus] = useState("draft");
+  const [error, setError] = useState("");
 
 
   const [username, setUsername] = useState("");
@@ -45,7 +46,8 @@ const CreateBlog = () => {
 
   const handleSave = async () => {
     setSaveLoading(true);
-    setSaveBlog("Saving...");
+      setError("");
+      setSaveBlog("Saving...");
     console.log(title, category, excerpt, postContentValue, coverImg, status);
     const response = await createPost(
       title,
@@ -54,14 +56,16 @@ const CreateBlog = () => {
       postContentValue,
       coverImg,
       status
-    );
+    ).catch((e) => {
+      setError("Image too large");
+    })
 
     if (response === "success") {
       setSaveLoading(false);
       setSaveBlog("Saved!");
       notify("BLOG CREATED");
       setTimeout(() => {
-        navigate.push("/allBlogs");
+        navigate.push("/admin");
       }, 3000);
     }
   };
@@ -210,6 +214,7 @@ const CreateBlog = () => {
                   <option value="publish">publish</option>
                 </select>
 
+              <span className="text-[orangered]">{error}</span>
                 <button
                   className="customBtn"
                   type="button"

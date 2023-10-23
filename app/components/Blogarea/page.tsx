@@ -87,7 +87,6 @@ export default function BlogArea() {
               </div>
             ) : (
               <>
-                {console.log(posts)}
                 <LatestNews
                   title={posts[0].title ? posts[0].title : "No Posts Yet"}
                   coverImg={posts[0].coverImg ? posts[0].coverImg : ""}
@@ -97,6 +96,32 @@ export default function BlogArea() {
               </>
             )}
           </BlogCon>
+          {/* BLOGS AND THERE CATEGORIES */}
+          <Container>
+            <InnerSpan>More News</InnerSpan>
+            <BgImg>
+              <Image height={40} src={bgimage} alt="img" />
+            </BgImg>
+          </Container>
+          <BlogCon>
+            {posts.length > 0 &&
+              posts.slice(0, 4).map((post: any) => {
+                return (
+                  <SingleBlog
+                    key={post.title}
+                    thumbnail={post.coverImg}
+                    title={post.title}
+                    datePublished={post.category}
+                    description={post.excerpt}
+                    id={post.id}
+                    category={post.category}
+                    isPost
+                  />
+                );
+              })}
+          </BlogCon>
+
+          {/* BLOGS AND THERE CATEGORIES END */}
 
           <Container>
             <InnerSpan className=" whitespace-nowrap">YouTube Videos</InnerSpan>
