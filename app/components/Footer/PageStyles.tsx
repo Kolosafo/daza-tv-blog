@@ -43,8 +43,7 @@ export const InnerCon = styled.div`
 
 export const InnerConDiv = styled.div`
   display: flex;
-  justify-content: center;
-  align-items: center;
+  justify-content: start;
   border-bottom: 2px solid grey;
 
   div {

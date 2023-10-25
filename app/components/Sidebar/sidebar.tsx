@@ -10,14 +10,14 @@ const SidebarNav = () => {
   return (
     <div>
       <Disclosure as="nav">
-        <Disclosure.Button className="relative inline-flex items-center z-25 peer justify-center rounded-md  mt-2 text-#fb4c35 hover:text-white ">
-          <FaBars aria-hidden="true" className=" text-red-500  h-9 w-9 z-35 " />
+        <Disclosure.Button className="relative inline-flex items-center z-25 peer justify-center rounded-md  mt-2 text-#fb4c35">
+          <FaBars aria-hidden="true" className=" text-red-500  h-9 w-9 z-35  hover:text-white Bmd:hover:text-gray-700  transition duration-150 ease-out" />
         </Disclosure.Button>
         <Transition
           enter="transition duration-100 ease-out"
           leave="transition duration-75 ease-out"
         >
-          <Disclosure.Panel className="fixed p-6 w-[40%] h-screen  bg-white z-10  top-0 left-0 transform  transition duration-150 ease-out">
+          <Disclosure.Panel className="fixed p-6 w-[30%] h-screen  bg-white z-10  top-0 left-0 transform  transition duration-150 ease-out">
             {/* <div className="  h-screen bg-gray-100 z-25 fixed top-0 right-[0] w-[30%] "></div> */}
             <Disclosure.Button className="absolute right-10 inline-flex items-center z-25 peer justify-center rounded-md  mt-2 text-#fb4c35 hover:text-white ">
               <GiCancel

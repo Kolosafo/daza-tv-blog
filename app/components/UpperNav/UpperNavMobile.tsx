@@ -28,10 +28,10 @@ export default function UpperNavMobile() {
         </LeftSection>
         <RightSection>
           <InfoSection>
-            <span>
+            {/* <span>
               English
               <AiOutlineArrowDown className="ml-2" />
-            </span>
+            </span> */}
           </InfoSection>
           <InfoSection>
             <IconWrapper>

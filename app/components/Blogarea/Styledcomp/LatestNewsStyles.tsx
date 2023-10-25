@@ -4,6 +4,7 @@ export const MainCon = styled.div`
   width: auto;
   display: flex;
   flex-direction: column;
+  
 `;
 
 export const TopCon = styled.div`

@@ -41,14 +41,11 @@ const SingleBlog: FC<Props> = ({
     <Container>
       {category && (
         <CategorySpan>
-          <span
+          <div
             style={{
-              width: "10px",
-              padding: "5px",
-              marginRight: "2px",
-              backgroundColor: "orangered",
+             
             }}
-          ></span>
+          ></div>
           {category}
         </CategorySpan>
       )}

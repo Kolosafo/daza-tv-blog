@@ -4,7 +4,8 @@ export const Nav = styled.nav`
   position: relative;
   height: auto;
   width: 100%;
-
+  margin-top: 5px;
+  margin-bottom: 5px;
   font-size: 14px;
   color: #605e5e;
   background-color: #e6e7e8;
@@ -69,6 +70,8 @@ export const MNav = styled.div`
   height: auto;
   width: 100%;
   font-size: 14px;
+  margin-top: 5px;
+  margin-bottom: 5px;
   color: #605e5e;
   background-color: #e6e7e8;
   box-sizing: border-box;

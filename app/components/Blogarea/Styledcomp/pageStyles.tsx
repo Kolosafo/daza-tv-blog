@@ -72,7 +72,7 @@ export const BlogCon = styled.div`
   flex-wrap: wrap;
   justify-content: space-between;
   
-  align-items: center;
+  align-items: start;
   margin-bottom: 40px;
   @media only screen and (max-width: 767px) {
     display: block;
