@@ -62,6 +62,8 @@ import { doc, getDoc } from "firebase/firestore";
 import { ToastContainer, toast } from "react-toastify";
 import { db } from "@/app/firebase";
 import { Circles } from "react-loader-spinner";
+import { getPosts } from "@/app/utils/getBlogs";
+
 import parse from 'html-react-parser';
 
 
@@ -69,6 +71,7 @@ export default function BlogDetailsComp() {
   const params: any = useSearchParams();
   const notify = (arg: any) => toast(arg);
 
+  const [posts, setPosts] = useState<any>([]);
   const [postContentValue, setPostContentValue] = useState("");
   const [loading, setLoading] = useState(false);
   const [title, setTitle] = useState("");
@@ -79,6 +82,7 @@ export default function BlogDetailsComp() {
   const [category, setCategory] = useState<any>("News");
 
   useEffect(() => {
+
     const id = params.get("id");
     const docRef = doc(db, "posts", id);
     setLoading(true);
@@ -87,7 +91,6 @@ export default function BlogDetailsComp() {
 
       if (docSnap.exists()) {
         const res = docSnap.data();
-
         setTitle(res.title);
         setExcerpt(res.excerpt);
         setPostContentValue(res.content);
@@ -99,6 +102,9 @@ export default function BlogDetailsComp() {
       } else {
         notify("Post Not Found");
       }
+
+      const getAllPosts = await getPost()
+      setPosts(getAllPosts)
     };
     getPost();
   }, [params]);
@@ -156,7 +162,7 @@ export default function BlogDetailsComp() {
               </CommentSection>
             </MainBlogCon>
             <MenuCon>
-              <RightMenu />
+              <RightMenu posts={posts} />
             </MenuCon>
           </BlogWrapper>
         </BlogDetailsCon>
