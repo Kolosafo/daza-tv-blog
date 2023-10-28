@@ -18,6 +18,7 @@ import { CgEnter } from "react-icons/cg";
 import fimg2 from "./we-might-have-just-discovered-the-fountain-of-youth-90x72.jpg";
 import { DateIcon } from "../RightMenu/pageStyles";
 import { getPosts } from "@/app/utils/getBlogs";
+import { FaTiktok, FaInstagram, FaYoutube, FaFacebook } from "react-icons/fa";
 
 export default function Footer() {
   const Router = useRouter();
@@ -39,9 +40,9 @@ export default function Footer() {
       {/* <Image src={bgimg} alt="img"/> */}
       <FCon>
         <InnerCon>
-          <Image width={300} src={logo} alt="logo1" />
+          {/* <Image width={300} src={logo} alt="logo1" /> */}
           <div></div>
-          <Image width={300} height={300} src={"/og-logo2.png"} alt="logo2" />
+          <Image width={100} height={100} src={"/og-logo2.png"} alt="logo2" />
           <div></div>
           <h2>Address</h2>
           <p>
@@ -159,15 +160,55 @@ export default function Footer() {
             </div>
           </Contact>
         </InnerCon> */}
-        <InnerCon
-          className=" cursor-pointer underline"
-          onClick={() => {
-            Router.push(
-              "https://www.youtube.com/channel/UCb4BvFRquPfEEmpwFYiMAog"
-            );
-          }}
-        >
-          <h2>Follow us on YouTube</h2>
+        <InnerCon>
+          <h2
+            className=" cursor-pointer underline"
+            onClick={() => {
+              Router.push(
+                "https://www.youtube.com/channel/UCb4BvFRquPfEEmpwFYiMAog"
+              );
+            }}
+          >
+            Follow us on YouTube
+          </h2>
+          <div className="flex gap-7">
+            <FaTiktok
+              color={"purple"}
+              size={30}
+              onClick={() => {
+                Router.push("https://www.tiktok.com/@nuruddeendaza");
+              }}
+              classname="cursor-pointer"
+            />
+            <FaYoutube
+              color={"red"}
+              size={30}
+              onClick={() => {
+                Router.push(
+                  "https://www.youtube.com/channel/UCb4BvFRquPfEEmpwFYiMAog"
+                );
+              }}
+              classname="cursor-pointer"
+            />
+            <FaInstagram
+              color={"orange"}
+              size={30}
+              onClick={() => {
+                Router.push("https://www.instagram.com/nuruddeendaza/");
+              }}
+              classname="cursor-pointer"
+            />
+            <FaFacebook
+              color={"skyblue"}
+              size={30}
+              onClick={() => {
+                Router.push(
+                  "https://web.facebook.com/p/DAZA-TV-100063743503213/?paipv=0&eav=Afa-KB7UI3M66zNPz4n7WIPDNXQxl02xLWXoVCko1kjN8ZBD9WlzUtvEXZLxr6Nfp4w&_rdc=1&_rdr"
+                );
+              }}
+              classname="cursor-pointer"
+            />
+          </div>
         </InnerCon>
       </FCon>
     </FContainer>
