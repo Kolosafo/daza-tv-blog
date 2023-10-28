@@ -98,6 +98,7 @@ export const Yt = styled(FaYoutube)`
   font-size: 35px;
   position: absolute;
 `;
+
 export const Comment = styled(BiMoviePlay)`
   font-size: 35px;
   position: absolute;
