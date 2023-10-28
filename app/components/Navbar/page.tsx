@@ -1,17 +1,20 @@
 "use client";
 import Image from "next/image";
-import React from "react";
+import { useState } from "react";
 import logo from "./logo.png";
 import header from "./header-banner.jpg";
 import { FaBars } from "react-icons/fa";
 import { AiOutlineDown } from "react-icons/ai";
 import { useRouter } from "next/navigation";
 import SidebarNav from "../Sidebar/sidebar";
+import { useAppSelector } from "@/app/redux/store";
 
 const Navbar = () => {
+  const { active } = useAppSelector((store) => store.navSlice);
+
   const Router = useRouter();
   return (
-    <main className="bg-[white] w-full border " >
+    <main className="bg-[white] w-full border ">
       <nav className="h-full flex justify-between md:py-5 py-5 Bmd:justify-around m-auto md:w-[70%] w-full ">
         <div className=" cursor-pointer flex justify-start items-start ">
           <Image
@@ -38,35 +41,76 @@ const Navbar = () => {
           </div>
           <div
             onClick={() => {
-              Router.push(`https://www.tiktok.com/@nuruddeendaza`);
+              Router.push(`/comedy`);
             }}
-            className="hover:bg-gray-700 cursor-pointer border-r-2 border-solid border-gray-600 h-full  p-6 items-center justify-between flex text-white    transition duration-150 ease-out"
+            className={`${
+              active === "comedy"
+                ? "bg-[#fb4c35] text-black hover:text-white"
+                : "text-white"
+            } hover:bg-gray-700 cursor-pointer border-r-2 border-solid border-gray-600 h-full  p-6 items-center justify-between flex transition duration-150 ease-out`}
           >
-            TikTok
+            Comedy
+          </div>
+
+          <div
+            onClick={() => {
+              Router.push(`/movies`);
+            }}
+            className={`${
+              active === "movies"
+                ? "bg-[#fb4c35] text-black hover:text-white"
+                : "text-white"
+            } hover:bg-gray-700 cursor-pointer border-r-2 border-solid border-gray-600 h-full  p-6 items-center justify-between flex transition duration-150 ease-out`}
+          >
+            Movies
+          </div>
+          <div
+            onClick={() => {
+              Router.push(`/lifestyle`);
+            }}
+            className={`${
+              active === "lifestyle"
+                ? "bg-[#fb4c35] text-black hover:text-white"
+                : "text-white"
+            } hover:bg-gray-700 cursor-pointer border-r-2 border-solid border-gray-600 h-full  p-6 items-center justify-between flex transition duration-150 ease-out`}
+          >
+            Lifestyle
           </div>
           <div
             onClick={() => {
               Router.push(
-                `https://www.youtube.com/channel/UCb4BvFRquPfEEmpwFYiMAog`
+                `/music`
               );
             }}
-            className="hover:bg-gray-700 cursor-pointer border-r-2 border-solid border-gray-600 h-full  p-6 items-center justify-between flex text-white    transition duration-150 ease-out"
+            className={`${
+              active === "music"
+                ? "bg-[#fb4c35] text-black hover:text-white"
+                : "text-white"
+            } hover:bg-gray-700 cursor-pointer border-r-2 border-solid border-gray-600 h-full  p-6 items-center justify-between flex transition duration-150 ease-out`}
           >
-            YouTube
+            Music
           </div>
           <div
             onClick={() => {
-              Router.push(`/allBlogs`);
+              Router.push(`/news`);
             }}
-            className="hover:bg-gray-700 cursor-pointer border-r-2 border-solid border-gray-600 h-full  p-6 items-center justify-between flex text-white    transition duration-150 ease-out"
+            className={`${
+              active === "news"
+                ? "bg-[#fb4c35] text-black hover:text-white"
+                : "text-white"
+            }  hover:bg-gray-700 cursor-pointer border-r-2 border-solid border-gray-600 h-full  p-6 items-center justify-between flex    transition duration-150 ease-out`}
           >
-            Blogs
+            News
           </div>
           <div
             onClick={() => {
               Router.push(`/`);
             }}
-            className="bg-[#fb4c35] cursor-pointer border-r-1 border-solid border-gray-800 h-full  p-6 items-center justify-between flex hover:text-black  transition duration-150 ease-out"
+            className={`${
+              active === "home"
+                ? "bg-[#fb4c35] text-black hover:text-white"
+                : "text-white"
+            } hover:bg-gray-700 cursor-pointer border-l-2 border-r-2 border-solid border-gray-600 h-full  p-6 items-center justify-between flex  transition duration-150 ease-out`}
           >
             Home
           </div>

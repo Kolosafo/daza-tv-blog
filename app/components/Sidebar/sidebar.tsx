@@ -11,7 +11,10 @@ const SidebarNav = () => {
     <div>
       <Disclosure as="nav">
         <Disclosure.Button className="relative inline-flex items-center z-25 peer justify-center rounded-md  mt-2 text-#fb4c35">
-          <FaBars aria-hidden="true" className=" text-red-500  h-9 w-9 z-35  hover:text-white Bmd:hover:text-gray-700  transition duration-150 ease-out" />
+          <FaBars
+            aria-hidden="true"
+            className=" text-red-500  h-9 w-9 z-35  hover:text-white Bmd:hover:text-gray-700  transition duration-150 ease-out"
+          />
         </Disclosure.Button>
         <Transition
           enter="transition duration-100 ease-out"
@@ -46,20 +49,42 @@ const SidebarNav = () => {
                 </div>
                 <div className="flex mb-2 justify-center  items-center gap-4 pl-2 border-b border-gray-200 hover:bg-red-900 p-2 rounded-md group cursor-pointer hover:shadow-lg m-auto">
                   <a
-                    href="https://www.youtube.com/channel/UCb4BvFRquPfEEmpwFYiMAog"
-                    target="_blank"
+                    href="/news"
                     className="text-base text-gray-800 group-hover:text-white font-semibold"
                   >
-                    YouTube
+                    News
                   </a>
                 </div>
                 <div className="flex mb-2 justify-center  items-center gap-4 pl-2 border-b border-gray-200 hover:bg-purple-900 p-2 rounded-md group cursor-pointer hover:shadow-lg m-auto">
                   <a
-                    href="https://www.tiktok.com/@nuruddeendaza"
-                    target="_blank"
+                    href="/comedy"
                     className="text-base text-gray-800 group-hover:text-white font-semibold"
                   >
-                    TikTok
+                    Comedy
+                  </a>
+                </div>
+                <div className="flex mb-2 justify-center  items-center gap-4 pl-2 border-b border-gray-200 hover:bg-purple-900 p-2 rounded-md group cursor-pointer hover:shadow-lg m-auto">
+                  <a
+                    href="/movies"
+                    className="text-base text-gray-800 group-hover:text-white font-semibold"
+                  >
+                    Movies
+                  </a>
+                </div>
+                <div className="flex mb-2 justify-center  items-center gap-4 pl-2 border-b border-gray-200 hover:bg-purple-900 p-2 rounded-md group cursor-pointer hover:shadow-lg m-auto">
+                  <a
+                    href="/lifestyle"
+                    className="text-base text-gray-800 group-hover:text-white font-semibold"
+                  >
+                    Lifestyle
+                  </a>
+                </div>
+                <div className="flex mb-2 justify-center  items-center gap-4 pl-2 border-b border-gray-200 hover:bg-purple-900 p-2 rounded-md group cursor-pointer hover:shadow-lg m-auto">
+                  <a
+                    href="/music"
+                    className="text-base text-gray-800 group-hover:text-white font-semibold"
+                  >
+                    Music
                   </a>
                 </div>
               </div>

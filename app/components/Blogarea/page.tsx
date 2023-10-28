@@ -190,7 +190,7 @@ export default function BlogArea() {
           {/* MORE NEWS */}
         </MainBlogCon>
         <MenuCon>
-          <RightMenu />
+          <RightMenu posts={posts} />
         </MenuCon>
       </BlogWrapper>
     </BlogAreaCon>

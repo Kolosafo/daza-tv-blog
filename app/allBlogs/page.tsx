@@ -83,7 +83,7 @@ const AllBlogs = () => {
           <>
             <div>
               <h1 className="text-DarkGray-Blue text-center text-2xl font-extrabold mb-4">
-                Blogs Posts
+                All Blog Posts
               </h1>
             </div>
             <div className="flex my-10 gap-10 flex-wrap">

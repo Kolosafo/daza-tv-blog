@@ -10,6 +10,7 @@ import {
   ShareLink,
   Title,
 } from "./Styledcomp/BlogStyles";
+import Typewriter from "typewriter-effect";
 import { BsFillShareFill } from "react-icons/bs";
 import { BiCommentDetail } from "react-icons/bi";
 import { DateIcon } from "../RightMenu/pageStyles";
@@ -49,7 +50,23 @@ const LatestNews: FC<Props> = ({ coverImg, title, excerpt, id }) => {
             <DateIcon />
             February 19, 2019
           </Date> */}
-          <Description>{excerpt}</Description>
+          <Description>
+            {" "}
+            <Typewriter
+              options={{
+                delay: 50,
+                autoStart: true,
+                loop: true,
+                strings: [excerpt],
+              }}
+              onInit={(typewriter) => {
+                typewriter
+                  .pauseFor(3000)
+                  // .deleteAll()
+                  .start();
+              }}
+            />
+          </Description>
         </ContentContainer>
         <Footer>
           <ShareLink>

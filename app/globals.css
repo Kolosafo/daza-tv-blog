@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 body {
-  @apply text-lg text-[#6c6b6b] bg-[#e6e7e8] overflow-x-hidden !overflow-x-auto;
+  @apply text-lg text-[#6c6b6b] bg-[#f9fafa] overflow-x-hidden !overflow-x-auto;
 }
 
 @layer components {

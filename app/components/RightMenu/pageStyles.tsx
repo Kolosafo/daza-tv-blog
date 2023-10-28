@@ -10,6 +10,8 @@ import {
   FaTiktok,
 } from "react-icons/fa";
 import { CiCalendarDate } from "react-icons/ci";
+import { BiMoviePlay } from "react-icons/bi";
+
 import { Title } from "../Blogarea/Styledcomp/BlogStyles";
 
 export const RCon = styled.div`
@@ -96,7 +98,7 @@ export const Yt = styled(FaYoutube)`
   font-size: 35px;
   position: absolute;
 `;
-export const Comment = styled(FaComments)`
+export const Comment = styled(BiMoviePlay)`
   font-size: 35px;
   position: absolute;
 `;
@@ -232,7 +234,7 @@ export const Con6 = styled.div`
   }
 `;
 
-export const DateIcon = styled(CiCalendarDate)`
+export const DateIcon = styled(BiMoviePlay)`
   color: #fb4c35;
   font-size: 25px;
   padding-right: 7px;
