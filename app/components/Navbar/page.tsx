@@ -1,6 +1,6 @@
 "use client";
 import Image from "next/image";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import logo from "./logo.png";
 import header from "./header-banner.jpg";
 import { FaBars } from "react-icons/fa";
@@ -12,10 +12,29 @@ import { useAppSelector } from "@/app/redux/store";
 const Navbar = () => {
   const { active } = useAppSelector((store) => store.navSlice);
 
+  // for navscroll
+  const [isVisible, setIsVisible] = useState<boolean>(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 100) {
+        setIsVisible(true);
+      } else {
+        setIsVisible(false);
+      }
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
   const Router = useRouter();
   return (
-    <main className="bg-[white] w-full border ">
-      <nav className="h-full flex justify-between md:py-5 py-5 Bmd:justify-around m-auto md:w-[70%] w-full ">
+    <main
+      className={` bg-[white] w-full border  transition duration-150 ease-out`}
+    >
+      <nav className=" bg-[white] h-full flex justify-between md:py-5 py-5 Bmd:justify-around m-auto md:w-[70%] w-full Bmd:hidden">
         <div className=" cursor-pointer flex justify-start items-start ">
           <Image
             width={100}
@@ -27,16 +46,49 @@ const Navbar = () => {
             }}
           />
         </div>
-        <div className=" h-full items-center justify-center mr-10 sm:hidden  mt-5">
+        <div className="  h-full items-center justify-center mr-10 sm:hidden  mt-5">
           <SidebarNav />
         </div>
         <div className="xmd:hidden mt-5">
           <Image width={400} src={header} alt="header" />
         </div>
       </nav>
-      <nav className="bg-gray-900 text-white w-full h-[50px] flex justify-between text-sm xmd:hidden ">
+      {/* MOBILE VIEW STICKY HEADER  */}
+      <nav
+        className={`${
+          isVisible ? "translate-y-0 fixed top-0 z-50  " : ""
+        } bg-[white]  justify-between md:py-5 py-5 Bmd:justify-around m-auto md:w-[70%] w-full hidden Bmd:flex `}
+      >
+        <div className=" cursor-pointer flex justify-start items-start ">
+          <Image
+            width={100}
+            height={80}
+            src={"/og-logo.png"}
+            alt="logohere"
+            onClick={() => {
+              Router.push(`/`);
+            }}
+          />
+        </div>
+        <div className="  h-full items-center justify-center mr-10 sm:hidden  mt-5">
+          <SidebarNav />
+        </div>
+        <div className="xmd:hidden mt-5">
+          <Image width={400} src={header} alt="header" />
+        </div>
+      </nav>
+      <nav
+        className={` ${
+          isVisible ? "translate-y-0 fixed top-0 z-50  " : ""
+        } bg-gray-900 text-white w-full h-[50px] flex justify-between text-sm xmd:hidden  transition ease-out`}
+      >
+   
         <div className="h-full flex flex-row-reverse justify-start items-center  m-auto w-[70%] ">
-          <div className="border-l-2 border-solid border-gray-800 h-full pl-4 items-center justify-center flex ml-auto">
+          <div
+            className={` ${
+              isVisible ? "" : ""
+            }border-l-2 border-solid border-gray-800 h-full pl-4 items-center justify-center flex ml-auto`}
+          >
             <SidebarNav />
           </div>
           <div
@@ -78,9 +130,7 @@ const Navbar = () => {
           </div>
           <div
             onClick={() => {
-              Router.push(
-                `/music`
-              );
+              Router.push(`/music`);
             }}
             className={`${
               active === "music"

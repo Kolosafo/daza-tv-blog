@@ -1,33 +1,37 @@
 "use client";
 import React from "react";
-import { Disclosure, Transition } from "@headlessui/react";
+
 import { FaBars } from "react-icons/fa";
 import { GiCancel } from "react-icons/gi";
 import { useRouter } from "next/navigation";
 
-const SidebarNav = () => {
+
+export const SidebarNav = () => {
+  const [collapsed, setCollapsed] = React.useState(false);
+
+   const handleCollapse = () => {
+      setCollapsed(!collapsed)
+    }
+
   const Router = useRouter();
   return (
     <div>
-      <Disclosure as="nav">
-        <Disclosure.Button className="relative inline-flex items-center z-25 peer justify-center rounded-md  mt-2 text-#fb4c35">
+      <div className="">
+        <button onClick={handleCollapse} className="relative inline-flex items-center z-25 peer justify-center rounded-md  mt-2 text-#fb4c35">
           <FaBars
             aria-hidden="true"
-            className=" text-red-500  h-9 w-9 z-35  hover:text-white Bmd:hover:text-gray-700  transition duration-150 ease-out"
+            className=" text-red-500  h-9 w-9 z-35  hover:text-white Bmd:hover:text-gray-700 "
           />
-        </Disclosure.Button>
-        <Transition
-          enter="transition duration-100 ease-out"
-          leave="transition duration-75 ease-out"
-        >
-          <Disclosure.Panel className="fixed p-6 w-[30%] h-screen  bg-white z-10  top-0 left-0 transform  transition duration-150 ease-out">
+        </button>
+        
+          <div   className={` ${collapsed ? "translate-x-0 w-[30%] border border-red-400   " : "-translate-x-40 z-50 " } fixed p-6  h-screen  bg-white top-0 left-0 z-50   transition delay-50 ease-out`}>
             {/* <div className="  h-screen bg-gray-100 z-25 fixed top-0 right-[0] w-[30%] "></div> */}
-            <Disclosure.Button className="absolute right-10 inline-flex items-center z-25 peer justify-center rounded-md  mt-2 text-#fb4c35 hover:text-white ">
+            <button  onClick={handleCollapse}  className="absolute right-10 inline-flex items-center z-25 peer justify-center rounded-md  mt-2 text-#fb4c35 hover:text-white ">
               <GiCancel
                 aria-hidden="true"
                 className=" text-red-500  h-9 w-9 z-35 "
               />
-            </Disclosure.Button>
+            </button>
 
             <div className="flex flex-col justify-start items-center mt-16">
               <h1
@@ -89,9 +93,8 @@ const SidebarNav = () => {
                 </div>
               </div>
             </div>
-          </Disclosure.Panel>
-        </Transition>
-      </Disclosure>
+          </div >
+      </div>
     </div>
   );
 };
