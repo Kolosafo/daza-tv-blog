@@ -12,7 +12,6 @@ const SliderPage = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
 
   const handleSlideChange = (swiper: any) => {
-    console.log("CHECKING INDEX -->", swiper.activeIndex);
     setCurrentSlide(swiper.activeIndex);
   };
   return (

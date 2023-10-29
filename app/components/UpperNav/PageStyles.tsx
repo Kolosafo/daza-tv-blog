@@ -47,6 +47,7 @@ export const InfoSection = styled.div`
   display: flex;
   align-items: center;
   margin-right: 16px;
+  gap: 5px;
 
   &:last-child {
     margin-right: 0;
@@ -63,6 +64,7 @@ export const IconWrapper = styled.div`
   font-size: 1.5rem;
   margin-right: 5px;
   color: #fb4c35;
+  cursor: pointer;
 `;
 
 export const MNav = styled.div`

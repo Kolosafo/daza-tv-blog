@@ -1,11 +1,12 @@
 "use client";
 import React from "react";
-import { AiOutlineArrowDown } from "react-icons/ai";
+import { useRouter } from "next/navigation";
 import {
   FaFacebookSquare,
   FaTwitter,
-  FaLinkedin,
+  FaYoutube,
   FaInstagram,
+  FaTiktok,
 } from "react-icons/fa";
 import {
   IconWrapper,
@@ -18,6 +19,7 @@ import {
 } from "./PageStyles";
 
 export default function UpperNavMobile() {
+  const Router = useRouter();
   return (
     <MNav>
       <NavContainer>
@@ -33,18 +35,40 @@ export default function UpperNavMobile() {
               <AiOutlineArrowDown className="ml-2" />
             </span> */}
           </InfoSection>
-          <InfoSection>
+          <InfoSection style={{gap: "5"}}>
             <IconWrapper>
-              <FaFacebookSquare />
+              <FaFacebookSquare   onClick={() => {
+                Router.push(
+                  "https://web.facebook.com/p/DAZA-TV-100063743503213/?paipv=0&eav=Afa-KB7UI3M66zNPz4n7WIPDNXQxl02xLWXoVCko1kjN8ZBD9WlzUtvEXZLxr6Nfp4w&_rdc=1&_rdr"
+                );
+              }}
+              classname="cursor-pointer" />
             </IconWrapper>
             <IconWrapper>
-              <FaTwitter />
+            <FaTiktok
+              onClick={() => {
+                Router.push("https://www.tiktok.com/@nuruddeendaza");
+              }}
+              classname="cursor-pointer"
+            />
             </IconWrapper>
             <IconWrapper>
-              <FaLinkedin />
+            <FaYoutube
+              onClick={() => {
+                Router.push(
+                  "https://www.youtube.com/channel/UCb4BvFRquPfEEmpwFYiMAog"
+                );
+              }}
+              classname="cursor-pointer"
+            />
             </IconWrapper>
             <IconWrapper>
-              <FaInstagram />
+              <FaInstagram   onClick={() => {
+                Router.push(
+                  "https://www.instagram.com/nuruddeendaza/"
+                );
+              }}
+              classname="cursor-pointer" />
             </IconWrapper>
           </InfoSection>
         </RightSection>

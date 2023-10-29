@@ -57,7 +57,7 @@ const Navbar = () => {
       <nav
         className={`${
           isVisible ? "translate-y-0 fixed top-0 z-50  " : ""
-        } bg-[white]  justify-between md:py-5 py-5 Bmd:justify-around m-auto md:w-[70%] w-full hidden Bmd:flex `}
+        } bg-[white]  justify-between md:py-5 py-1 Bmd:justify-around m-auto md:w-[70%] w-full hidden Bmd:flex `}
       >
         <div className=" cursor-pointer flex justify-start items-start ">
           <Image
@@ -68,9 +68,10 @@ const Navbar = () => {
             onClick={() => {
               Router.push(`/`);
             }}
+            className="md:w-full w-1/2"
           />
         </div>
-        <div className="  h-full items-center justify-center mr-10 sm:hidden  mt-5">
+        <div className="  h-full items-center justify-center mr-10 sm:hidden  mt-[0.4rem]">
           <SidebarNav />
         </div>
         <div className="xmd:hidden mt-5">

@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   title: 'Daza TV',
   description: 'Home of Arewa News and Movies',
   icons: {
-    icon: "/logo.jpg",
+    icon: "/og-logo2.png",
   },
 }
 
@@ -25,7 +25,7 @@ export default function RootLayout({
   return (
     <html lang="en">
     <head>
-    <link rel="icon" href="/logo.jpg" />
+    <link rel="icon" href="/og-logo2.png" />
     </head>
       <body>
         <ReduxProvider>
