@@ -7,10 +7,11 @@ import { FaBars } from "react-icons/fa";
 import { AiOutlineDown } from "react-icons/ai";
 import { useRouter } from "next/navigation";
 import SidebarNav from "../Sidebar/sidebar";
-import { useAppSelector } from "@/app/redux/store";
+import { useSelector } from "react-redux";
+import { IRootState } from "@/redux/store";
 
 const Navbar = () => {
-  const { active } = useAppSelector((store) => store.navSlice);
+  const { active } = useSelector((store: IRootState) => store.navSlice);
 
   // for navscroll
   const [isVisible, setIsVisible] = useState<boolean>(false);
@@ -83,7 +84,6 @@ const Navbar = () => {
           isVisible ? "translate-y-0 fixed top-0 z-50  " : ""
         } bg-gray-900 text-white w-full h-[50px] flex justify-between text-sm xmd:hidden  transition ease-out`}
       >
-   
         <div className="h-full flex flex-row-reverse justify-start items-center  m-auto w-[70%] ">
           <div
             className={` ${

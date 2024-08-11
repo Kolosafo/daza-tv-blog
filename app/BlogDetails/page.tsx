@@ -1,27 +1,26 @@
-import React from 'react'
-import UpperNavMobile from '../components/UpperNav/UpperNavMobile'
-import Navbar from '../components/Navbar/page'
-import Footer from '../components/Footer/page'
-import Uppernav from '../components/UpperNav/page'
-import Slider from '../components/Slider/page'
-import BlogArea from '../components/Blogarea/page'
-import BlogDetailsComp from './Compoenents/BlogDetails/BlogDetails'
-import DetailsUpperNavMobile from './Compoenents/Uppernav/UpperNavMobile'
-import DetailsUppernav from './Compoenents/Uppernav/page'
+"use client";
+import React from "react";
+import Navbar from "../components/Navbar/page";
+import Footer from "../components/Footer/page";
+import BlogDetailsComp from "./Compoenents/BlogDetails";
+import DetailsUpperNavMobile from "./Compoenents/Uppernav/UpperNavMobile";
+import DetailsUppernav from "./Compoenents/Uppernav/page";
+import { useSearchParams } from "next/navigation";
 
 export default function BlogDetails() {
+  const params: any = useSearchParams();
+  const id = params.get("id");
   return (
     <main className="w-full  overflow-hidden">
-    <DetailsUpperNavMobile/>
+      <DetailsUpperNavMobile />
 
-    {/* <Navbar /> */}
-    {/* <Slider/> */}
-    {/* <BlogArea/> */}
+      {/* <Navbar /> */}
+      {/* <Slider/> */}
+      {/* <BlogArea/> */}
       <Navbar />
-     <BlogDetailsComp/>
-     <Footer/>
-    <DetailsUppernav /> 
-    
-  </main>
-  )
+      <BlogDetailsComp slug={id} />
+      <Footer />
+      <DetailsUppernav />
+    </main>
+  );
 }

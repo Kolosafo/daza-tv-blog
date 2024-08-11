@@ -1,29 +1,24 @@
 "use client";
 import { useState, useEffect } from "react";
 import SingleBlog from "./SingleBlog";
-import {
-  BgImg,
-  BlogAreaCon,
-  BlogCon,
-  BlogWrapper,
-  Container,
-  InnerSpan,
-  MainBlogCon,
-  MenuCon,
-} from "./Styledcomp/pageStyles";
+
 import bgimage from "./assets/11231.png";
 import Image from "next/image";
-import RecentBlog from "./RecentBlog";
 import LatestNews from "./LatestNews";
 import RightMenu from "../RightMenu/rightMenu";
 import { useRouter } from "next/navigation";
 import { getPosts } from "@/app/utils/getBlogs";
 import { Circles } from "react-loader-spinner";
 import { getYouTubeThumbnails } from "@/app/utils/ytApi";
-import { RBgImg, RWrap2, Rinnerspan } from "../RightMenu/pageStyles";
+import { RBgImg } from "../RightMenu/pageStyles";
 import { ToastContainer, toast } from "react-toastify";
+import { shuffleArray } from "@/app/utils/helpers";
+import { loadPosts } from "@/redux/posts/postSlice";
+import { ThunkDispatch } from "@reduxjs/toolkit";
+import { useDispatch } from "react-redux";
 
 export default function BlogArea() {
+  const dispatch = useDispatch<ThunkDispatch<any, any, any>>();
   const notify = (arg: any) => toast(arg);
   const [loading, setLoading] = useState(true);
   const [posts, setPosts] = useState<any>([]);
@@ -32,9 +27,10 @@ export default function BlogArea() {
   const getAllPosts = async () => {
     setLoading(true);
     const res = await getPosts();
+    dispatch(loadPosts(res));
     setPosts(res);
     const youtubeVideos = await getYouTubeThumbnails();
-    setYouTubePosts(youtubeVideos);
+    setYouTubePosts(shuffleArray(youtubeVideos));
     setLoading(false);
   };
 
@@ -53,9 +49,12 @@ export default function BlogArea() {
   }, []);
   const Router = useRouter();
   return (
-    <BlogAreaCon>
-      <BlogWrapper>
-        <MainBlogCon>
+    <div className="w-full flex justify-center items-center">
+      <div className="md:w-[70%] w-[95%] flex justify-center items-start md:flex-row flex-col mt-10">
+        <div
+          className="flex flex-col justify-start items-start"
+          style={{ flex: 3 }}
+        >
           {/* <Container>
             <InnerSpan>Recent posts</InnerSpan>
             <BgImg>
@@ -66,13 +65,15 @@ export default function BlogArea() {
             {/* <RecentBlog position={1} />
             <RecentBlog position={2} /> 
           </BlogCon> */}
-          <Container>
-            <InnerSpan>Latest News</InnerSpan>
-            <BgImg>
+          <div className="w-full justify-start items-center flex h-full mb-4">
+            <div className="text-center h-full w-[20%] text-white">
+              Latest News
+            </div>
+            <div className="justify-center">
               <Image height={40} src={bgimage} alt="img" />
-            </BgImg>
-          </Container>
-          <BlogCon>
+            </div>
+          </div>
+          <div className="md:flex block md:flex-row flex-col flex-wrap md:justify-between md:items-start justify-center items-center md:w-auto w-full mb-10">
             {loading && posts.length === 0 ? (
               <div className="flex justify-center w-[60vw] items-center h-[70vh]">
                 <Circles
@@ -95,15 +96,17 @@ export default function BlogArea() {
                 />
               </>
             )}
-          </BlogCon>
+          </div>
           {/* BLOGS AND THERE CATEGORIES */}
-          <Container>
-            <InnerSpan>More News</InnerSpan>
-            <BgImg>
+          <div className="w-full justify-start items-center flex h-full mb-4">
+            <div className="text-center h-full md:w-[20%] w-full text-white bg-[#fb4c35]">
+              More News
+            </div>
+            <div className="justify-center">
               <Image height={40} src={bgimage} alt="img" />
-            </BgImg>
-          </Container>
-          <BlogCon>
+            </div>
+          </div>
+          <div className="md:flex block md:flex-row flex-col flex-wrap md:justify-between md:items-start justify-center items-center md:w-auto w-full mb-10">
             {posts.length > 0 &&
               posts.slice(0, 4).map((post: any) => {
                 return (
@@ -119,20 +122,22 @@ export default function BlogArea() {
                   />
                 );
               })}
-          </BlogCon>
+          </div>
 
           {/* BLOGS AND THERE CATEGORIES END */}
 
-          <Container>
-            <InnerSpan className=" whitespace-nowrap">YouTube Videos</InnerSpan>
-            <BgImg>
+          <div className="w-full justify-start items-center flex h-full mb-4">
+            <div className="text-center h-full md:w-[20%] w-full text-white bg-[#fb4c35] whitespace-nowrap">
+              YouTube Videos
+            </div>
+            <div className="justify-center">
               <Image height={40} src={bgimage} alt="img" />
-            </BgImg>
-          </Container>
+            </div>
+          </div>
           {/* YOUTUBE */}
           {youtubePosts ? (
             <>
-              <BlogCon>
+              <div className="md:flex block md:flex-row flex-col flex-wrap md:justify-between md:items-start justify-center items-center md:w-auto w-full mb-10">
                 <SingleBlog
                   thumbnail={youtubePosts[0].snippet.thumbnails.high.url}
                   title={youtubePosts[0].snippet.title}
@@ -147,8 +152,8 @@ export default function BlogArea() {
                   description={youtubePosts[1].snippet.description}
                   id={youtubePosts[1].id.videoId}
                 />
-              </BlogCon>
-              <BlogCon>
+              </div>
+              <div className="md:flex block md:flex-row flex-col flex-wrap md:justify-between md:items-start justify-center items-center md:w-auto w-full mb-10">
                 <SingleBlog
                   thumbnail={youtubePosts[2].snippet.thumbnails.high.url}
                   title={youtubePosts[2].snippet.title}
@@ -163,7 +168,7 @@ export default function BlogArea() {
                   description={youtubePosts[3].snippet.description}
                   id={youtubePosts[3].id.videoId}
                 />
-              </BlogCon>
+              </div>
             </>
           ) : (
             <div className="flex justify-center items-center w-full h-[70vh]">
@@ -178,21 +183,21 @@ export default function BlogArea() {
               />
             </div>
           )}
-          <RWrap2
-            className="py-5 bg-orange-600 flext justify-center items-center text-white font-bold"
+          <div
+            className="py-5 bg-orange-600 my-10 cursor-pointer flext justify-center items-center text-white font-bold"
             onClick={() => Router.push("/allBlogs")}
           >
             <span className="color-white">More Posts</span>
 
             {/* <Rinnerspan>More Posts</Rinnerspan> */}
             <RBgImg></RBgImg>
-          </RWrap2>
+          </div>
           {/* MORE NEWS */}
-        </MainBlogCon>
-        <MenuCon>
+        </div>
+        <div className="flex flex-1 h-full">
           <RightMenu posts={posts} />
-        </MenuCon>
-      </BlogWrapper>
-    </BlogAreaCon>
+        </div>
+      </div>
+    </div>
   );
 }

@@ -7,47 +7,42 @@ import {
   FaLinkedin,
   FaInstagram,
 } from "react-icons/fa";
-import {
-  IconWrapper,
-  InfoSection,
-  LeftSection,
-  Nav,
-  NavContainer,
-  RightSection,
-} from "./PageStyles";
 
 export default function Uppernav() {
   return (
-    <Nav>
-      <NavContainer>
-        <LeftSection>
+    <div
+      className="relative h-auto w-full my-1 text-xs text-[#605e5e] bg-[#e6e7e8]"
+      style={{ boxSizing: "border-box" }}
+    >
+      <div className="h-full m-auto w-[70%] p-0 flex justify-between items-center md:flex-row flex-col">
+        <div className="w-1/2 m-0 md:mr-0 mr-[20px]">
           <span>@ 2023</span>
           <a className="mx-2">Daza TV</a>
           <span>All Rights Reserved</span>
-        </LeftSection>
-        <RightSection>
-          <InfoSection>
+        </div>
+        <div className="w-1/2 flex justify-end items-center">
+          <div className="flex items-center mr-[16px] gap-1">
             {/* <span>
               English
               <AiOutlineArrowDown className="ml-2" />
             </span> */}
-          </InfoSection>
-          <InfoSection>
-            <IconWrapper>
+          </div>
+          <div className="hidden md:flex  items-center mr-[16px] gap-1">
+            <div className="text-2xl mr-[5px] text-[#fb4c35] cursor-pointer">
               <FaFacebookSquare />
-            </IconWrapper>
-            <IconWrapper>
+            </div>
+            <div className="text-2xl mr-[5px] text-[#fb4c35] cursor-pointer">
               <FaTwitter />
-            </IconWrapper>
-            <IconWrapper>
+            </div>
+            <div className="text-2xl mr-[5px] text-[#fb4c35] cursor-pointer">
               <FaLinkedin />
-            </IconWrapper>
-            <IconWrapper>
+            </div>
+            <div className="text-2xl mr-[5px] text-[#fb4c35] cursor-pointer">
               <FaInstagram />
-            </IconWrapper>
-          </InfoSection>
-        </RightSection>
-      </NavContainer>
-    </Nav>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   );
 }

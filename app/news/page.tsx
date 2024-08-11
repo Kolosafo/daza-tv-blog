@@ -11,7 +11,7 @@ import { db } from "../firebase";
 import Navbar from "../components/Navbar/page";
 import { useDispatch } from "react-redux";
 import { AppDispatch } from "../redux/store";
-import { news } from "../redux/navslice";
+import { news } from "../../redux/navslice";
 const News = () => {
     const dispatch = useDispatch<AppDispatch>();
     const notify = (arg: any) => toast(arg);

@@ -8,11 +8,11 @@ import Slider from "./components/Slider/page";
 import BlogArea from "./components/Blogarea/page";
 import Footer from "./components/Footer/page";
 import UpperNavMobile from "./components/UpperNav/UpperNavMobile";
-import { AppDispatch } from './redux/store';
 import { useDispatch } from 'react-redux';
-import { home } from './redux/navslice';
+import { home } from '../redux/navslice';
+import { ThunkDispatch } from '@reduxjs/toolkit';
 const Home = () => {
-  const dispatch = useDispatch<AppDispatch>();
+  const dispatch = useDispatch<ThunkDispatch<any, any, any>>();
   useEffect(() => {
     dispatch(home())
   }, [dispatch])

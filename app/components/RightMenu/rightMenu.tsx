@@ -2,30 +2,14 @@ import { useState, FC, useEffect } from "react";
 import Image from "next/image";
 import {
   Comment,
-  CommentCon,
   Con1,
   Con2,
-  Con3,
   Con4,
   Con5,
-  Con6,
-  ConDiv,
   DateIcon,
   Face,
   Insta,
-  LCon,
   RBgImg,
-  RCommentCon,
-  RCon,
-  RContainer,
-  RTitle,
-  RWrap,
-  RWrap2,
-  Rinnerspan,
-  Rsection,
-  SmallTitle,
-  SocialCon,
-  TopSection,
   Twit,
   Yt,
 } from "./pageStyles";
@@ -72,13 +56,15 @@ const RightMenu: FC<Props> = ({ posts }) => {
     setFiltered(posts);
   }, [posts]);
   return (
-    <RCon className="mt-10 ml-10">
-      <RContainer>
-        <RWrap>
-          <Rinnerspan>Stay Connected</Rinnerspan>
+    <div className="flex flex-col w-full mt-10 ml-10">
+      <div className="w-full flex flex-col items-start">
+        <div className="flex w-full">
+          <span className="text-white bg-black flex w-full text-center justify-center">
+            Stay Connected
+          </span>
           <RBgImg></RBgImg>
-        </RWrap>
-        <SocialCon>
+        </div>
+        <div className="flex flex-wrap justify-center items-center mt-8 w-full">
           <Con1
             onClick={() => {
               Router.push(
@@ -87,10 +73,10 @@ const RightMenu: FC<Props> = ({ posts }) => {
             }}
           >
             <Face />
-            <ConDiv>
-              <p>1,000</p>
-              <span>Fans</span>
-            </ConDiv>
+            <div className="flex absolute flex-col items-center justify-center mt-20 opacity-0">
+              <p className="text-xs">1,000</p>
+              <span className="p-0 m-0 text-xs">Fans</span>
+            </div>
           </Con1>
           <Con2
             onClick={() => {
@@ -98,10 +84,10 @@ const RightMenu: FC<Props> = ({ posts }) => {
             }}
           >
             <Twit />
-            <ConDiv>
-              <p>8,000</p>
-              <span>Fans</span>
-            </ConDiv>
+            <div className="flex absolute flex-col items-center justify-center mt-20 opacity-0">
+              <p className="text-xs">800</p>
+              <span className="p-0 m-0 text-xs">Fans</span>
+            </div>
           </Con2>
           {/* <Con3>
             <Linkd />
@@ -116,10 +102,10 @@ const RightMenu: FC<Props> = ({ posts }) => {
             }}
           >
             <Insta />
-            <ConDiv>
-              <p>1,000</p>
-              <span>Fans</span>
-            </ConDiv>
+            <div className="flex absolute flex-col items-center justify-center mt-20 opacity-0">
+              <p className="text-xs">1,000</p>
+              <span className="p-0 m-0 text-xs">Fans</span>
+            </div>
           </Con4>
           <Con5
             onClick={() => {
@@ -129,112 +115,101 @@ const RightMenu: FC<Props> = ({ posts }) => {
             }}
           >
             <Yt />
-            <ConDiv>
-              <p>1,200</p>
-              <span>Subs</span>
-            </ConDiv>
+            <div className="flex absolute flex-col items-center justify-center mt-20 opacity-0">
+              <p className="text-xs">1,200</p>
+              <span className="p-0 m-0 text-xs">Fans</span>
+            </div>
           </Con5>
-          {/* <Con6>
+        </div>
+
+        <div className="my-5 cursor-pointer">
+          <div className="text-white bg-black flex w-full text-center justify-center">
+            Web Series
+          </div>
+        </div>
+        <div className="flex justify-center bg-white items-center w-full">
+          <div className="flex-1 flex justify-center items-center">
             <Comment />
-            <ConDiv>
-              <p>0</p>
-              <span>Fans</span>
-            </ConDiv>
-          </Con6> */}
-        </SocialCon>
-        {/* <RWrap2 onClick={() => Router.push("/allBlogs")}>
-          <Rinnerspan>More Posts</Rinnerspan>
-          <RBgImg></RBgImg>
-        </RWrap2> */}
-        {/* <RContainer>
-          <ImageContainer>
-            <Image width={330} src={Rimg} alt="imghere" />
-          </ImageContainer>
-          <ContentContainer>
-            <Title>The Best Sports For A Hard...</Title>
+          </div>
+          <div className="bg-white" style={{ flex: 3 }}>
+            <span className="p-2 ml-2 text-base m-0 mt-2 font-semibold">
+              Addini na S1-E6
+            </span>
             <Date>
               {" "}
               <DateIcon />
               February 19, 2019
             </Date>
-          </ContentContainer>
-        </RContainer> */}
-        <RWrap2>
-          <Rinnerspan>Web Series</Rinnerspan>
-        </RWrap2>
-        <CommentCon>
-          <LCon>
+          </div>
+        </div>
+        <div className="flex justify-center bg-white items-center w-full">
+          <div className="flex-1 flex justify-center items-center">
             <Comment />
-          </LCon>
-          <RCommentCon>
-            <RTitle>Addini na S1-E6</RTitle>
+          </div>
+          <div className="bg-white" style={{ flex: 3 }}>
+            <span className="p-2 ml-2 text-base m-0 mt-2 font-semibold">
+              So Da Hawaye S2-E3
+            </span>
             <Date>
               {" "}
               <DateIcon />
               February 19, 2019
             </Date>
-          </RCommentCon>
-        </CommentCon>
-        <CommentCon>
-          <LCon>
+          </div>
+        </div>
+        <div className="flex justify-center bg-white items-center w-full">
+          <div className="flex-1 flex justify-center items-center">
             <Comment />
-          </LCon>
-          <RCommentCon>
-            <RTitle>So Da Hawaye S2-E3</RTitle>
+          </div>
+          <div className="bg-white" style={{ flex: 3 }}>
+            <span className="p-2 ml-2 text-base m-0 mt-2 font-semibold">
+              Addini na S1- E5
+            </span>
             <Date>
               {" "}
               <DateIcon />
               February 19, 2019
             </Date>
-          </RCommentCon>
-        </CommentCon>
-        <CommentCon>
-          <LCon>
+          </div>
+        </div>
+        <div className="flex justify-center bg-white items-center w-full">
+          <div className="flex-1 flex justify-center items-center">
             <Comment />
-          </LCon>
-          <RCommentCon>
-            <RTitle>Addini na S1- E5</RTitle>
+          </div>
+          <div className="bg-white" style={{ flex: 3 }}>
+            <span className="p-2 ml-2 text-base m-0 mt-2 font-semibold">
+              Autan Yen Jarida
+            </span>
             <Date>
               {" "}
               <DateIcon />
               February 19, 2019
             </Date>
-          </RCommentCon>
-        </CommentCon>
-        <CommentCon>
-          <LCon>
+          </div>
+        </div>
+        <div className="flex justify-center bg-white items-center w-full">
+          <div className="flex-1 flex justify-center items-center">
             <Comment />
-          </LCon>
-          <RCommentCon>
-            <RTitle>Autan Yen Jarida</RTitle>
+          </div>
+          <div className="bg-white" style={{ flex: 3 }}>
+            <span className="p-2 ml-2 text-base m-0 mt-2 font-semibold">
+              Addini na S1- E4
+            </span>
             <Date>
               {" "}
               <DateIcon />
               February 19, 2019
             </Date>
-          </RCommentCon>
-        </CommentCon>
-        <CommentCon>
-          <LCon>
-            <Comment />
-          </LCon>
-          <RCommentCon>
-            <RTitle>Addini na S1- E4</RTitle>
-            <Date>
-              {" "}
-              <DateIcon />
-              February 19, 2019
-            </Date>
-          </RCommentCon>
-        </CommentCon>
-        <Rsection>
-          <TopSection>
+          </div>
+        </div>
+        <div className=" mt-5 mb-4">
+          <div className="flex bg-white text-black">
             <div
               className={`${
                 activeCat === "news"
                   ? "bg-[#fb4c35] text-black hover:text-white"
                   : "text-black"
-              } hover:bg-gray-700 cursor-pointer border-r-2 border-solid border-gray-600 h-full  p-6 items-center justify-between flex transition duration-150 ease-out`}
+              } hover:bg-gray-700 cursor-pointer px-5 border-r-2 border-solid border-gray-600 h-full  p-6 items-center justify-between flex transition duration-150 ease-out`}
               onClick={() => {
                 setActiveCat("news");
                 filterPosts("news");
@@ -268,12 +243,12 @@ const RightMenu: FC<Props> = ({ posts }) => {
             >
               Music
             </div>
-          </TopSection>
+          </div>
           {filtered.length > 0 ? (
             filtered.map((post: any) => {
               return (
-                <RCommentCon key={post.id}>
-                  <div>
+                <div className="bg-white" style={{ flex: 3 }} key={post.id}>
+                  <div className="p-2 flex">
                     <Image
                       width={50}
                       height={50}
@@ -281,13 +256,13 @@ const RightMenu: FC<Props> = ({ posts }) => {
                       alt="coverImg"
                       className="object-cover"
                     />
-                    <span>
-                      <SmallTitle>
+                    <span className="ml-2">
+                      <div className="text-xs font-semibold text-black">
                         {" "}
                         {post.excerpt.length > 20
                           ? `${post.excerpt.slice(0, 20)}....`
                           : post.excerpt}
-                      </SmallTitle>
+                      </div>
                       <Date>
                         {" "}
                         <DateIcon />
@@ -295,12 +270,12 @@ const RightMenu: FC<Props> = ({ posts }) => {
                       </Date>
                     </span>
                   </div>
-                </RCommentCon>
+                </div>
               );
             })
           ) : (
             <div className="flex justify-center items-center w-full h-full">
-             <span>No posts here</span>
+              <span>No posts here</span>
             </div>
           )}
 
@@ -343,9 +318,9 @@ const RightMenu: FC<Props> = ({ posts }) => {
               </span>
             </div>
           </RCommentCon> */}
-        </Rsection>
-      </RContainer>
-    </RCon>
+        </div>
+      </div>
+    </div>
   );
 };
 

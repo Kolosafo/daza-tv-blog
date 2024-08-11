@@ -6,7 +6,7 @@ const baseApiUrl = "https://www.googleapis.com/youtube/v3";
 ("../../");
 export const getYouTubeThumbnails = async () => {
   const ytThumbnails: string[] = [];
-  const url = `https://www.googleapis.com/youtube/v3/search?part=snippet&channelId=UCb4BvFRquPfEEmpwFYiMAog&key=${extraApiKey}&maxResults=4`;
+  const url = `https://www.googleapis.com/youtube/v3/search?part=snippet&channelId=UCb4BvFRquPfEEmpwFYiMAog&key=${extraApiKey}&maxResults=20`;
   const response = await axios.get(url);
   // console.log("STATUS", response.status);
   const responseItems = response.data.items;
