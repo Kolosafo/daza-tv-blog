@@ -9,10 +9,13 @@ import { ToastContainer, toast } from "react-toastify";
 import { deleteDoc, doc } from "firebase/firestore";
 import { db } from "../firebase";
 import Navbar from "../components/Navbar/page";
+import { IRootState } from "@/redux/store";
+import { useSelector } from "react-redux";
 const AllBlogs = () => {
+  const { posts } = useSelector((state: IRootState) => state.posts);
   const notify = (arg: any) => toast(arg);
   const [loading, setLoading] = useState(true);
-  const [posts, setPosts] = useState<any>([]);
+  const [_posts, setPosts] = useState<any>([]);
   const Router = useRouter();
   const isLogged = true;
 
@@ -60,8 +63,12 @@ const AllBlogs = () => {
   // };
 
   useEffect(() => {
-    getAllPosts();
-  }, []);
+    if (!posts) {
+      getAllPosts();
+    } else {
+      setPosts(posts);
+    }
+  }, [posts]);
   return (
     <>
       <Navbar />
@@ -87,11 +94,11 @@ const AllBlogs = () => {
               </h1>
             </div>
             <div className="flex my-10 gap-10 flex-wrap">
-              {posts.length > 0 ? (
-                posts.map((post: any) => (
+              {_posts.length > 0 ? (
+                _posts.map((post: any) => (
                   <div
                     key={post.id}
-                    className="rounded-lg w-[45%] p-5 bg-gray-100 shadow-md bg-PaleBlue border-2 flex flex-col justify-center items-center"
+                    className="rounded-lg md:w-[45%] w-full p-5 bg-gray-100 shadow-md bg-PaleBlue border-2 flex flex-col justify-center items-center"
                   >
                     <h1 className="text-xl font-bold">
                       {post.title.length > 25
