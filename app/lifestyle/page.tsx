@@ -10,10 +10,10 @@ import { deleteDoc, doc } from "firebase/firestore";
 import { db } from "../firebase";
 import Navbar from "../components/Navbar/page";
 import { useDispatch } from "react-redux";
-import { AppDispatch } from "../redux/store";
 import { lifestyle } from "../../redux/navslice";
+import { ThunkDispatch } from "@reduxjs/toolkit";
 const News = () => {
-    const dispatch = useDispatch<AppDispatch>();
+    const dispatch = useDispatch<ThunkDispatch<any, any, any>>();
     const notify = (arg: any) => toast(arg);
   const [loading, setLoading] = useState(true);
   const [posts, setPosts] = useState<any>([]);
