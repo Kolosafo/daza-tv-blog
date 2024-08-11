@@ -67,6 +67,7 @@ const AllBlogs = () => {
       getAllPosts();
     } else {
       setPosts(posts);
+      setLoading(false)
     }
   }, [posts]);
   return (
